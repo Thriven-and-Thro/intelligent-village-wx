@@ -1,0 +1,16 @@
+<view class="login container">
+  <view class="panel">
+    <view class="panel-select" wx:if="{{status === 0}}">
+      <button class="login-click" bindtap="loginClick">登录</button>
+      <button class="register-click" bindtap="registerClick">注册</button>
+    </view>
+    <view class="panel-content" wx:if="{{status !== 0}}">
+      <view class="return-click">
+        <image src="../../static/icon/返回.png" alt="" bindtap="returnClick" />
+        <view class="title">{{ status === 1 ? "登录" : "注册" }}</view>
+      </view>
+      <login-panel wx:if="{{status === 1}}" bindopenMessage="openMessage"></login-panel>
+      <!-- <register-panel wx:if="status === 2"></register-panel> -->
+    </view>
+  </view>
+</view>
