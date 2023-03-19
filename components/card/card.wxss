@@ -1,0 +1,33 @@
+/* components/card/card.wxss */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin: 0 auto;
+  padding: 25rpx 35rpx;
+  width: 90vw;
+  height: 200rpx;
+
+  color: #a5a2c2;
+  background-color:#f7f8fd;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+}
+
+.card .card-header {
+  color: #3a377f;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.card .card-content {
+  max-width: 80vw;
+}
+
+.card .card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+}

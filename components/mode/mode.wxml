@@ -1,0 +1,7 @@
+<!--components/mode/mode.wxml-->
+<view class="mode">
+  <view class="mode-title">
+    {{title}}
+  </view>
+  <slot></slot>
+</view>

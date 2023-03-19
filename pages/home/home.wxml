@@ -1,2 +1,31 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="home">
+  <view class="user-info">
+    <view class="info-header">
+      <view class="info-date">{{currentDate}}</view>
+      <view class="info-hello over">你好！ {{userName}}</view>
+    </view>
+    <view>
+      <view>
+        当前所在区域：
+      </view>
+      <view class="info-area">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+          <view class="picker over">
+            {{region[0]}} - {{region[1]}} - {{region[2]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{region.length > 0}}">
+    <mode title="{{'热门'}}">
+      <card></card>
+    </mode>
+    <mode title="{{'推荐'}}">
+      <card></card>
+    </mode>
+  </view>
+  <view wx:else><null></null></view>
+
+</view>

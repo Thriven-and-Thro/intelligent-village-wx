@@ -9,10 +9,14 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "智慧村庄",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#435cef",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/home/home",
@@ -40,6 +44,7 @@
       }
     ]
   },
+  "usingComponents": {},
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

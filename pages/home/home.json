@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "card": "/components/card/card",
+    "mode": "/components/mode/mode",
+    "null": "/components/null/null"
+  }
 }

@@ -1,6 +1,16 @@
 /**app.wxss**/
+:root {
+  font-size: 30rpx;
+}
+
 .container {
   height: 100%;
   display: flex;
   box-sizing: border-box;
 } 
+
+.over {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

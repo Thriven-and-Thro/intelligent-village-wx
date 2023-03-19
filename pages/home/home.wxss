@@ -1,1 +1,42 @@
 /* pages/home/home.wxss */
+.home {
+  height: 100vh;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+
+.home .user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin: 0 auto;
+  padding: 35rpx;
+  width: 90vw;
+  height: 340rpx;
+
+  color: #fff;
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  box-shadow: 0 0 40rpx rgba(0, 0, 0, 0.2);
+}
+
+.home .user-info .info-header {
+  margin-bottom: 20rpx;
+}
+
+.home .user-info .info-header .info-hello {
+  font-size: 45rpx;
+  font-weight: 600;
+
+  max-width: 75vw;
+}
+
+.home .user-info .info-area {
+  margin-top: 10rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+
+  max-width: 75vw;
+}

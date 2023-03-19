@@ -1,1 +1,31 @@
 /* pages/category/category.wxss */
+.category {
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 0 5vw;
+}
+
+.category .category-label {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  padding-bottom: 10rpx;
+  background-color: #fff;
+}
+
+.category .category-label .label{
+  padding: 15rpx 30rpx;
+  border-radius: 40rpx;
+  font-weight: 600;
+}
+
+.category .category-label .label.active {
+  color: #fff;
+  background-color: #4e44bd;
+}
+
+.category .category-label .label {
+  color: #4e44bd;
+  background-color: #f2f5fc;
+}

@@ -1,0 +1,4 @@
+/* components/null/null.wxss */
+.null {
+  margin: 70rpx;
+}

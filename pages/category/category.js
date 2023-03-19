@@ -5,7 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
+    labelArr: [
+      "党务", "村务", "财务", "项目"
+    ],
+    state: 0,
+    cardItems: []
+  },
 
+  labelClick(e) {
+    this.setData({
+      state: e.target.dataset.index
+    })
   },
 
   /**

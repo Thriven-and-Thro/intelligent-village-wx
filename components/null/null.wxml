@@ -1,0 +1,4 @@
+<!--components/null/null.wxml-->
+<view class="null">
+  请点击上方法选择所在区域，以查看所在区域相关内容
+</view>

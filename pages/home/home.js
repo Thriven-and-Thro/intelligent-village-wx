@@ -1,25 +1,40 @@
 // pages/home/home.js
+const { getStorage, setStorage } = require('../../utils/cache')
+const { formatTime } = require('../../utils/util')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userName: "",
+    currentDate: "",
+    region: []
+  },
 
+  bindRegionChange: function (e) {
+    this.setData({
+      region: e.detail.value
+    })
+    setStorage('area', this.data.region)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.setData({
+      userName: getStorage("user").name,
+      region: getStorage("area") ?? [],
+      currentDate: formatTime(new Date()).split(' ')[0]
+    })
   },
 
   /**
