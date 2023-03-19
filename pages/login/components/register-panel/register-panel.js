@@ -23,6 +23,21 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    formSubmit(form) {
+      // 校验
+      // this.$refs.form
+      //   .validate()
+      //   .then((res) => {
+      // this.loginRequest(form.detail.value.name, form.detail.value.password);
+      wx.switchTab({
+        url: '/pages/login/login'
+      })
+      //   })
+      //   .catch((err) => {
+      //     this.triggerEvent("openMessage", "error", err[0].errorMessage);
+      //   });
+    },
+
     modelValue(e) {
       if(e.target.dataset.key === 'name') {
         this.setData({

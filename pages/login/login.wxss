@@ -1,6 +1,6 @@
 .login {
   height: 100vh;
-  background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
 }
 
 .login .panel {
@@ -14,19 +14,19 @@
 }
 
 .login .panel .panel-select button {
+  font-size: 40rpx;
   margin-bottom: 30rpx;
   color: #fff;
   background: rgba(255, 255, 255, 0);
-  border: 3rpx solid #fff;
+  border: 4rpx solid #fff;
   border-radius: 50rpx;
 }
 
 .login .panel .panel-content {
-  padding: 0 15rpx 15rpx 15rpx;
+  padding: 5rpx 25rpx 25rpx 25rpx;
   border-radius: 15rpx;
-  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4));
-  backdrop-filter: blur(20rpx);
-  box-shadow: 0 0 40rpx rgba(0, 0, 0, 0.2);
+  background: #fff;
+  box-shadow: 0 0 40rpx rgba(0, 0, 0, 0.5);
 }
 
 .login .panel .panel-content .return-click {
@@ -38,7 +38,7 @@
   font-size: 50rpx;
   font-weight: bold;
   text-align: center;
-  line-height: 200rpx;
+  line-height: 250rpx;
 }
 
 .login .panel .panel-content .return-click image {

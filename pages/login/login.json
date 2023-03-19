@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "login-panel": "./components/login-panel/login-panel"
+    "login-panel": "./components/login-panel/login-panel",
+    "register-panel": "./components/register-panel/register-panel"
   }
 }

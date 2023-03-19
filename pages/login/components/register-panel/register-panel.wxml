@@ -1,5 +1,5 @@
 <!--pages/login/components/register-panel/register-panel.wxml-->
-<block class="register-panel">
+<view class="register-panel">
   <form catchsubmit="formSubmit">
     <input type="text" name="name" value="{{formData.name}}" bindinput="modelValue" data-key="name"
       placeholder="请输入您的用户名" />
@@ -9,4 +9,4 @@
       data-key="confirmPassword" placeholder="请再次输入密码" />
     <button formType="submit">注册</button>
   </form>
-</block>
+</view>
