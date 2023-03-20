@@ -50,3 +50,17 @@
   border-top-right-radius: 75rpx;
   box-sizing: border-box;
 }
+
+.mine-content .exit {
+  padding: 0;
+  height: 120rpx;
+  width: 100%;
+  line-height: 120rpx;
+  font-size: 48rpx;
+  color: #21206a;
+  font-weight: 500;
+
+  background-color: #f7f8fd;
+  border-radius: 50rpx;
+  box-sizing: border-box;
+}

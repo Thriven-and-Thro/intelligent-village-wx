@@ -8,5 +8,6 @@
   </view>
   <view class="mine-content">
     <mine-card wx:for="{{cards}}" title="{{item.title}}"></mine-card>
+    <button class="exit">退出登录</button>
   </view>
 </view>

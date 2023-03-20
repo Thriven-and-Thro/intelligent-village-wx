@@ -4,12 +4,12 @@
   justify-content: space-between;
 
   padding: 0 55rpx;
-  margin-bottom: 45rpx;
+  margin-bottom: 40rpx;
 
   height: 120rpx;
   width: 100%;
   line-height: 120rpx;
-  font-size: 55rpx;
+  font-size: 48rpx;
   color: #21206a;
 
   background-color: #f7f8fd;
