@@ -1,0 +1,5 @@
+<!--pages/mine/mine-card/mine-card.wxml-->
+<view class="mine-card">
+  <view class="title">{{title}}</view>
+  <view>＞</view>
+</view>

@@ -8,7 +8,17 @@ Page({
    */
   data: {
     avatar: '/static/icon/default_avatar.jpg',
-    name: ''
+    name: '',
+    cards: [{
+      title: "我的反馈",
+      url: ""
+    }, {
+      title: "我的评论",
+      url: ""
+    }, {
+      title: "个人信息",
+      url: ""
+    }]
   },
 
   onReady() {

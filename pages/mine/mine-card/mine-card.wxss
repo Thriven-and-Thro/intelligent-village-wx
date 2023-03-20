@@ -1,0 +1,18 @@
+/* pages/mine/mine-card/mine-card.wxss */
+.mine-card {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 55rpx;
+  margin-bottom: 45rpx;
+
+  height: 120rpx;
+  width: 100%;
+  line-height: 120rpx;
+  font-size: 55rpx;
+  color: #21206a;
+
+  background-color: #f7f8fd;
+  border-radius: 50rpx;
+  box-sizing: border-box;
+}

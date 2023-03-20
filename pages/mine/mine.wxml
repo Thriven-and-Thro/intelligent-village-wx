@@ -6,5 +6,7 @@
     </view>
     <view class="text over">{{name}}</view>
   </view>
-  <view class="mine-content"></view>
+  <view class="mine-content">
+    <mine-card wx:for="{{cards}}" title="{{item.title}}"></mine-card>
+  </view>
 </view>

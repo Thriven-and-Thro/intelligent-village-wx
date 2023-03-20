@@ -39,8 +39,14 @@
 }
 
 .mine-content {
-  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 0 35rpx;
+  height: 65vh;
   background-color: #fff;
   border-top-left-radius: 75rpx;
   border-top-right-radius: 75rpx;
+  box-sizing: border-box;
 }
