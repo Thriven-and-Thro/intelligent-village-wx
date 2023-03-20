@@ -1,5 +1,5 @@
 <!--pages/home/home.wxml-->
-<view class="home">
+<view class="home container">
   <view class="user-info">
     <view class="info-header">
       <view class="info-date">{{currentDate}}</view>

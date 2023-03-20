@@ -1,1 +1,46 @@
 /* pages/mine/mine.wxss */
+.mine {
+  background-image: linear-gradient(-90deg, #b721ff 0%, #21d4fd 100%);
+}
+
+.mine-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 35vh;
+}
+
+.mine-header .avatar {
+  height: 18vh;
+  width: 18vh;
+  background-color: #fff;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.mine-header .avatar image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mine-header .text {
+  margin-top: 45rpx;
+
+  width: 50vw;
+  height: 55rpx;
+
+  font-size: 55rpx;
+  line-height: 55rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.mine-content {
+  height: 70vh;
+  background-color: #fff;
+  border-top-left-radius: 75rpx;
+  border-top-right-radius: 75rpx;
+}

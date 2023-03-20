@@ -1,23 +1,20 @@
 // pages/mine/mine.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+const { getStorage, setStorage } = require('../../utils/cache')
 
-  },
+Page({
 
   /**
    * 组件的初始数据
    */
   data: {
-
+    avatar: '/static/icon/default_avatar.jpg',
+    name: ''
   },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
+  onReady() {
+    this.setData({
+      name: getStorage('user').name,
+      avatar: getStorage('user').avatar ?? '/static/icon/default_avatar.jpg'
+    })
   }
 })

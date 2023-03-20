@@ -4,11 +4,17 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    header: '',
-    content: '',
-    userId: '',
-    count: 0,
-    date: ''
+    data: {
+      type: Object,
+      value: {
+        header: '',
+        content: '',
+        userId: '',
+        count: 0,
+        date: '',
+        art_id: ''
+      }
+    }
   },
 
   /**

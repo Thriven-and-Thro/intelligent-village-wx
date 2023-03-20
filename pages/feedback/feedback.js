@@ -1,23 +1,14 @@
 // pages/feedback/feedback.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-
-  },
-
+Page({
   /**
    * 组件的初始数据
    */
   data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
+    cardData: {
+      content: "contentcontentcontentcontentcontentcontentcontentcontentcontentcontent",
+      userId: '1',
+      state: 2,
+      date: '20223/03/20'
+    }
   }
 })

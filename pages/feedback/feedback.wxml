@@ -1,2 +1,9 @@
 <!--pages/feedback/feedback.wxml-->
-<text>pages/feedback/feedback.wxml</text>
+<view class="feedback container">
+  <view class="feedback-tabel">
+    <feedback-card card-data="{{cardData}}"></feedback-card>
+  </view>
+  <view class="feedback-emit">
+    <image src="/static/icon/我要反馈.png"></image>
+  </view>
+</view>

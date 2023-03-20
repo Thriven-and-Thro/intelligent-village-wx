@@ -1,12 +1,12 @@
 <!--components/card/card.wxml-->
 <view class="card">
   <view>
-    <view class="card-header over">{{header}}</view>
-    <view class="card-content over">{{content}}</view>
+    <view class="card-header over">{{data.header}}</view>
+    <view class="card-content over">{{data.content}}</view>
   </view>
   <view class="card-footer">
-    <view class="footer-userid">{{userId}}</view>
-    <view class="footer-count">{{count}}</view>
-    <view class="footer-date">{{date}}</view>
+    <view class="footer-userid">{{data.userId}}</view>
+    <view class="footer-count">{{data.count}}</view>
+    <view class="footer-date">{{data.date}}</view>
   </view>
 </view>

@@ -1,0 +1,45 @@
+/* pages/feedback/feedback-card.wxss */
+.feedback-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+
+  margin: 0 auto;
+  padding: 25rpx 35rpx;
+  width: 90vw;
+  height: 200rpx;
+
+  color: #a5a2c2;
+  background-color: #f7f8fd;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+}
+
+.feedback-card image {
+  position: absolute;
+  right: 20rpx;
+  top: 0;
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.feedback-card .card-content {
+  max-width: 35vh;
+  color: #3a377f;
+  font-weight: 600;
+
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.feedback-card .card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+}

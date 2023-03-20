@@ -1,10 +1,4 @@
 /* pages/home/home.wxss */
-.home {
-  height: 100vh;
-  padding-top: 10rpx;
-  box-sizing: border-box;
-}
-
 .home .user-info {
   display: flex;
   flex-direction: column;

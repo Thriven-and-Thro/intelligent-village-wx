@@ -1,7 +1,5 @@
 /* pages/category/category.wxss */
 .category {
-  height: 100vh;
-  box-sizing: border-box;
   padding: 0 5vw;
 }
 
@@ -22,7 +20,7 @@
 
 .category .category-label .label.active {
   color: #fff;
-  background-color: #4e44bd;
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
 }
 
 .category .category-label .label {

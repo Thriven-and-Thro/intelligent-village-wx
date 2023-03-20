@@ -1,0 +1,12 @@
+<!--pages/feedback/feedback-card.wxml-->
+<view class="feedback-card">
+    <view>
+      <view class="card-content">{{cardData.content}}</view>
+    </view>
+    <view class="card-footer">
+      <view class="footer-userid">{{cardData.userId}}</view>
+      <view class="footer-date">{{cardData.date}}</view>
+    </view>
+    <image src="{{urlByState}}">
+    </image>
+</view>
