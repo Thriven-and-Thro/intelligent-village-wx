@@ -1,5 +1,5 @@
 // pages/mine/mine.js
-const { getStorage, setStorage } = require('../../utils/cache')
+const { getStorage, removeStorage } = require('../../utils/cache')
 
 Page({
 
@@ -25,6 +25,14 @@ Page({
     this.setData({
       name: getStorage('user').name,
       avatar: getStorage('user').avatar ?? '/static/icon/default_avatar.jpg'
+    })
+  },
+
+  exitClick() {
+    removeStorage("user")
+    removeStorage("isChecked")
+    wx.reLaunch({
+      url: '/pages/login/login'
     })
   }
 })

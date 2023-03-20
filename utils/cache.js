@@ -7,6 +7,10 @@ const getStorage = (key) => {
   if (res) return JSON.parse(res);
 }
 
+const removeStorage = (key) => {
+  wx.removeStorageSync(key)
+}
+
 module.exports = {
-  setStorage, getStorage
+  setStorage, getStorage, removeStorage
 }
