@@ -1,0 +1,35 @@
+/* pages/article/component/comment.wxss */
+.comment {
+  margin-bottom: 20rpx;
+}
+
+.comment .comment-user {
+  display: flex;
+  align-items: center;
+}
+
+.comment .comment-user .name {
+  flex: 1;
+  padding: 0 20rpx;
+}
+
+.comment .comment-user image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.comment .content,
+.comment .date {
+  margin-left: 100rpx;
+}
+
+.comment .content {
+  padding-bottom: 20rpx;
+  word-wrap: break-word;
+}
+
+.comment .date {
+  color: #a5a2c2;
+}

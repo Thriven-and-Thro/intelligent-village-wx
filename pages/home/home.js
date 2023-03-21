@@ -10,7 +10,18 @@ Page({
   data: {
     userName: "",
     currentDate: "",
-    region: []
+    region: [],
+    recommendCardItems: [
+      {
+        header: 'recommendrecommendrecommendrecommendrecommend',
+        content: 'contentcontentcontentcontentcontentcontentcontent',
+        userId: '1',
+        count: 999,
+        date: '2023/03/20',
+        art_id: 1
+      }
+    ],
+    hotCardItems: []
   },
 
   bindRegionChange: function (e) {
@@ -18,6 +29,12 @@ Page({
       region: e.detail.value
     })
     setStorage('area', this.data.region)
+  },
+
+  detailClick(e) {
+    wx.navigateTo({
+      url: '/pages/article/article?art_id=' + e.target.dataset.id
+    })
   },
 
   /**
@@ -31,7 +48,7 @@ Page({
    */
   onReady: function () {
     this.setData({
-      userName: getStorage("user").name,
+      userName: getStorage("user")?.name,
       region: getStorage("area") ?? [],
       currentDate: formatTime(new Date()).split(' ')[0]
     })

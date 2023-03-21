@@ -23,9 +23,12 @@
       <card></card>
     </mode>
     <mode title="{{'推荐'}}">
-      <card></card>
+      <card wx:for="{{recommendCardItems}}" wx:key="art_id" cardData="{{item}}" bindtap="detailClick"
+        data-id="item.art_id"></card>
     </mode>
   </view>
-  <view wx:else><null></null></view>
+  <view wx:else>
+    <null></null>
+  </view>
 
 </view>

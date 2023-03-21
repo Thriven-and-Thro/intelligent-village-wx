@@ -53,10 +53,10 @@
 
 .mine-content .exit {
   padding: 0;
-  height: 120rpx;
+  height: 100rpx;
   width: 100%;
-  line-height: 120rpx;
-  font-size: 48rpx;
+  line-height: 100rpx;
+  font-size: 40rpx;
   color: #21206a;
   font-weight: 500;
 

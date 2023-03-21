@@ -2,7 +2,7 @@
 <view class="category container">
   <view class="category-label">
     <view class="label {{state === index ? 'active' : ''}}" wx:for="{{labelArr}}" wx:key="*this" bindtap="labelClick"
-      data-index="{{index}}">{{item}}</view>
+      data-index="index">{{item}}</view>
   </view>
   <view class="category-content">
     <block wx:for="{{[0,1,2,3]}}" wx:key="*this">

@@ -35,6 +35,12 @@
           "pathName": "pages/mine/mine",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/article/article",
+          "pathName": "pages/article/article",
+          "query": "art_id=item.art_id",
+          "scene": null
         }
       ]
     }

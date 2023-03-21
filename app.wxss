@@ -7,10 +7,30 @@
   height: 100%;
   min-height: 100vh;
   box-sizing: border-box;
-} 
+}
 
 .over {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table-bordered {
+  border: 1px solid #333;
+}
+
+.table .td,
+.table .th {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border: 1px solid #333;
 }

@@ -1,0 +1,9 @@
+<!--pages/article/component/comment.wxml-->
+<view class="comment">
+  <view class="comment-user">
+    <image src="{{user.avatar}}"></image>
+    <view class="name over">{{user.name}}</view>
+  </view>
+  <view class="content">{{content}}</view>
+  <view class="date">{{date}}</view>
+</view>

@@ -1,0 +1,47 @@
+/* pages/article/article.wxss */
+.article {
+  padding: 0 35rpx;
+}
+
+.article-detail .detail-user {
+  display: flex;
+  align-items: center;
+
+  padding: 20rpx 0 40rpx 0;
+  height: 80rpx;
+}
+
+.article-detail .detail-user image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.article-detail .detail-user .user-name {
+  flex: 1;
+  padding: 0 20rpx;
+}
+
+.article-detail .detail-user .date {
+  color: #a5a2c2;
+}
+
+.article .article-comments {
+  margin-top: 20rpx;
+  border-top: 1px solid #ddd;
+}
+
+.article-comments  .comments-title {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 20rpx;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #21206a
+}
+
+.article-comments  .comments-title view:last-child {
+  color: #a5a2c2;
+}
