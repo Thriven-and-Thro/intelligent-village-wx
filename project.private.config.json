@@ -59,6 +59,12 @@
           "pathName": "pages/myFeedback/myFeedback",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/myComment/myComment",
+          "pathName": "pages/myComment/myComment",
+          "query": "",
+          "scene": null
         }
       ]
     }

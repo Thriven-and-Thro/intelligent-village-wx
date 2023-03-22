@@ -5,7 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
+    commentItems: [
+      {
+        content: 'comentcomentcomentcomentcomentcoment',
+        date: '2023/03/22',
+        cardData: {
+          header: 'titletitletitletitletitletitletitletitletitle',
+          content: 'contentcontentcontentcontentcontentcontentcontentcontent',
+          userId: '1',
+          count: 0,
+          date: '2023/02/22',
+          art_id: '1'
+        }
+      }, {
+        content: 'comentcomentcomentcomentcomentcoment',
+        date: '2023/03/22',
+        cardData: {
+          header: 'titletitletitletitletitletitletitletitletitle',
+          content: 'contentcontentcontentcontentcontentcontentcontentcontent',
+          userId: '1',
+          count: 0,
+          date: '2023/02/22',
+          art_id: '1'
+        }
+      }
+    ]
+  },
 
+  articleClick(e) {
+    wx.navigateTo({
+      url: '/pages/article/article?art_id=' + e.currentTarget.dataset.id
+    })
   },
 
   /**

@@ -9,3 +9,23 @@
   color: #3a377f;
   font-weight: 600;
 }
+
+.my-comment .comment {
+  padding: 25rpx 35rpx;
+  margin-bottom: 20rpx;
+  background-color: #f7f8fd;
+  border-radius: 30rpx;
+}
+
+.my-comment .comment .card {
+  background-color: #dfe2ee;
+}
+
+.my-comment .comment .content {
+  padding-bottom: 20rpx;
+  word-wrap: break-word;
+}
+
+.my-comment .comment .date {
+  color: #7f7aad;
+}
