@@ -4,7 +4,7 @@
     <view>反馈详情
       <text class="{{state===0 ? '' : (state===1 ? 'success' : 'reject')}}">{{textByState}}</text>
     </view>
-    <content content="{{content}}" user="{{user}}" date="{{date}}"></content>
+    <content content="{{content}}" user="{{user}}" date="{{date}}" rich="{{false}}"></content>
   </view>
   <view class="area_reply {{state===1 ? 'success' : 'reject'}}" wx:if="{{area_reply.length!==0}}">
     <view>管理员回复</view>

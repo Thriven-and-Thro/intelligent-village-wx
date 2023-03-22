@@ -47,6 +47,12 @@
           "pathName": "pages/detail/detail",
           "query": "fee_id=0",
           "scene": null
+        },
+        {
+          "name": "pages/emitFeedback/emitFeedback",
+          "pathName": "pages/emitFeedback/emitFeedback",
+          "query": "",
+          "scene": null
         }
       ]
     }

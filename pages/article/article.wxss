@@ -3,6 +3,14 @@
   padding: 0 35rpx;
 }
 
+.article .article-title {
+  padding: 25rpx 0;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #21206a;
+  word-wrap: break-word;
+}
+
 .article .article-comments {
   margin: 20rpx 0 100rpx 0;
   border-top: 1px solid #ddd;

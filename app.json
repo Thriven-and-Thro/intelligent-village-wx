@@ -6,7 +6,10 @@
     "pages/feedback/feedback",
     "pages/mine/mine",
     "pages/article/article",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/emitFeedback/emitFeedback",
+    "pages/myFeedback/myFeedback",
+    "pages/myComment/myComment"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -16,5 +16,10 @@ Page({
     wx.navigateTo({
       url: '/pages/detail/detail?fee_id=' + e.target.dataset.id
     })
+  },
+  emitClick() {
+    wx.navigateTo({
+      url: '/pages/emitFeedback/emitFeedback'
+    })
   }
 })

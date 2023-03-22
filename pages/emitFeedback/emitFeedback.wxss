@@ -1,0 +1,41 @@
+/* pages/emitFeedback/emitFeedback.wxss */
+.emit-feedbcak {
+  padding: 0 35rpx;
+}
+
+.emit-feedbcak .title {
+  padding: 15rpx 0;
+  color: #3a377f;
+  font-weight: 600;
+}
+
+.emit-feedbcak .input {
+  margin: 30rpx 0;
+}
+
+.emit-feedbcak .input textarea {
+  padding: 30rpx;
+  width: 100%;
+  background-color: #f7f8fd;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+}
+
+.emit-feedbcak .input .upload {
+  margin: 50rpx 0;
+  width: 200rpx;
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+  color: #d6b686;
+  border: 2px dashed #d6b686;
+}
+
+.emit-feedbcak .emit-button {
+  width: 100%;
+  text-align: center;
+  line-height: 45rpx;
+  margin: 10rpx 0;
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+  color: #fff;
+}

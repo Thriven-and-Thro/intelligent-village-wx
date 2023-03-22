@@ -1,5 +1,6 @@
 <!--pages/article/article.wxml-->
 <view class="article">
+  <view class="article-title">{{title}}</view>
   <content content="{{content}}" user="{{user}}" date="{{date}}"></content>
   <view class="article-comments">
     <view class="comments-title">

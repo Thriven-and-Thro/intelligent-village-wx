@@ -1,0 +1,9 @@
+<!--pages/emitFeedback/emitFeedback.wxml-->
+<view class="emit-feedbcak container">
+  <view class="title">发表反馈</view>
+  <view class="input">
+    <textarea rows="20" placeholder="请输入反馈内容" maxlength="{{200}}" value="{{value}}"></textarea>
+    <view class="upload" bindtap="uploadClick">上传</view>
+  </view>
+  <button class="emit-button" bindtap="emitClick">发表</button>
+</view>

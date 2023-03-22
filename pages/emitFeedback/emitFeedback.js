@@ -1,27 +1,51 @@
-// pages/article/article.js
+// pages/emitFeedback/emitFeedback.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    title: 'titletitletitletitletitletitletitletitletitletitletitletitletitletitle',
-    content: '<p>aaa</p><p><br></p><table class="table table-bordered"><tbody><tr><td class="td"><br></td><td class="td"><br></td></tr><tr><td class="td"><br></td><td class="td"><br></td></tr><tr><td class="td"><br></td><td class="td"><br></td></tr></tbody></table>',
-    date: '2023/03/21',
-    user: {
-      name: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-      avatar: '/static/icon/default_avatar.jpg'
-    },
-    commentItems: []
+    value: ''
+  },
+
+  uploadClick() {
+    wx.chooseMedia({
+      count: 9,
+      mediaType: ['image','video'],
+      sourceType: ['album', 'camera'],
+      maxDuration: 30,
+      camera: 'back',
+      success(res) {
+        console.log(res);
+      }
+    })
+  },
+
+  upload() {
+    wx.uploadFile({
+      url: '',
+      filePath: '',
+      name: 'file',
+      formData: {
+        'user': 'test'
+      },
+      success (res){
+        const data = res.data
+        //do something
+      }
+    })
+  },
+
+  emitClick() {
+    // todo 发送创建反馈请求
+    // todo 调用upload
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-    // todo 请求文章
-    // todo 请求评论
+
   },
 
   /**

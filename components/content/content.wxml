@@ -6,6 +6,7 @@
       <view class="date">{{date}}</view>
     </view>
     <view class="detail-text">
-      <rich-text space="nbsp" nodes="{{content}}" user-select="true"></rich-text>
+      <rich-text space="nbsp" nodes="{{content}}" wx:if="{{rich}}"></rich-text>
+      <text wx:if="{{!rich}}">{{content}}</text>
     </view>
   </view>

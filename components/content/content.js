@@ -19,6 +19,10 @@ Component({
         avatar: ''
       }
     },
+    rich: {
+      type: Boolean,
+      value: true
+    }
   },
 
   /**
