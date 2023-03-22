@@ -1,23 +1,13 @@
-// pages/myFeedback/myFeedback.js
+// pages/myMessage/myMessage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cardData: [{
-      content: "contentcontentcontentcontentcontentcontentcontentcontentcontentcontent",
-      userId: '1',
-      state: 2,
-      date: '20223/03/20',
-      fee_id: '0'
-    }]
+
   },
-  feedbackClick(e) {
-    wx.navigateTo({
-      url: '/pages/detail/detail?fee_id=' + e.target.dataset.id
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

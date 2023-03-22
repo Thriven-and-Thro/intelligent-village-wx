@@ -7,7 +7,7 @@
     <view class="text over">{{name}}</view>
   </view>
   <view class="mine-content">
-    <mine-card wx:for="{{cards}}" title="{{item.title}}" wx:key="*this"></mine-card>
+    <mine-card wx:for="{{cards}}" title="{{item.title}}" wx:key="*this" bindtap="goMineClick" data-index="{{index}}"></mine-card>
     <button class="exit" bindtap="exitClick">退出登录</button>
   </view>
 </view>

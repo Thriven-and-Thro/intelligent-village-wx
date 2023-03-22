@@ -1,1 +1,15 @@
 /* pages/myFeedback/myFeedback.wxss */
+.my-feedbcak {
+  padding: 0 35rpx;
+}
+
+.my-feedbcak .title {
+  font-size: 40rpx;
+  padding: 15rpx;
+  color: #3a377f;
+  font-weight: 600;
+}
+
+.my-feedback .feedback-tabel {
+  background-color: #fff;
+}

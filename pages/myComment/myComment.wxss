@@ -1,1 +1,11 @@
 /* pages/myComment/myComment.wxss */
+.my-comment {
+  padding: 0 35rpx;
+}
+
+.my-comment .title {
+  font-size: 40rpx;
+  padding: 15rpx;
+  color: #3a377f;
+  font-weight: 600;
+}

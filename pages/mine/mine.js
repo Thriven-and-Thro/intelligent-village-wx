@@ -34,5 +34,18 @@ Page({
     wx.reLaunch({
       url: '/pages/login/login'
     })
+  },
+  goMineClick(e) {
+    let url = ''
+    if(e.target.dataset.index === 0) {
+      url = '/pages/myFeedback/myFeedback'
+    } else if(e.target.dataset.index === 1) {
+      url = '/pages/myComment/myComment'
+    }else {
+      url = '/pages/myMessage/myMessage'
+    }
+    wx.navigateTo({
+      url
+    })
   }
 })

@@ -1,2 +1,4 @@
 <!--pages/myComment/myComment.wxml-->
-<text>pages/myComment/myComment.wxml</text>
+<view class="my-comment container">
+  <view class="title">我的评论</view>
+</view>

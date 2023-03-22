@@ -9,7 +9,8 @@
     "pages/detail/detail",
     "pages/emitFeedback/emitFeedback",
     "pages/myFeedback/myFeedback",
-    "pages/myComment/myComment"
+    "pages/myComment/myComment",
+    "pages/myMessage/myMessage"
   ],
   "window": {
     "backgroundTextStyle": "light",

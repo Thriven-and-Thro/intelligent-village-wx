@@ -1,2 +1,8 @@
 <!--pages/myFeedback/myFeedback.wxml-->
-<text>pages/myFeedback/myFeedback.wxml</text>
+<view class="my-feedbcak container">
+  <view class="title">我的反馈</view>
+  <view class="feedback-tabel">
+    <feedback-card wx:for="{{cardData}}" wx:key="fee_id" card-data="{{item}}" bindtap="feedbackClick"
+      data-id="{{item.fee_id}}"></feedback-card>
+  </view>
+</view>

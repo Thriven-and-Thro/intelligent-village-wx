@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "feedback-card": "./feedback-card/feedback-card"
+    "feedback-card": "/components/feedback-card/feedback-card"
   }
 }

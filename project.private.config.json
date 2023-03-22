@@ -53,6 +53,12 @@
           "pathName": "pages/emitFeedback/emitFeedback",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/myFeedback/myFeedback",
+          "pathName": "pages/myFeedback/myFeedback",
+          "query": "",
+          "scene": null
         }
       ]
     }
