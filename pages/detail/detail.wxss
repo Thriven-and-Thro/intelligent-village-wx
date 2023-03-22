@@ -1,0 +1,47 @@
+/* pages/detail/detail.wxss */
+.detail {
+  position: relative;
+  padding: 0 35rpx;
+}
+
+.detail .feedback,
+.detail .area_reply,
+.detail .user_reply {
+  margin: 30rpx 0;
+  padding: 25rpx;
+  background-color: #f7f8fd;
+  border-radius: 35rpx;
+}
+
+.detail .feedback>view:first-child,
+.detail .area_reply>view:first-child,
+.detail .user_reply>view:first-child {
+  padding: 15rpx 0;
+  color: #3a377f;
+  font-weight: 600;
+}
+
+.detail .feedback>view:first-child text {
+  padding: 0 10rpx;
+  font-size: 25rpx;
+  line-height: 30rpx;
+  color: #fff;
+  border-radius: 15rpx;
+  background-color: #909399;
+}
+
+.detail .area_reply.reject {
+  background-color: #fef0f0;
+}
+
+.detail .area_reply.success {
+  background-color: #f0f9eb;
+}
+
+.detail .feedback>view:first-child text.success {
+  background-color: #67c23a;
+}
+
+.detail .feedback>view:first-child text.reject {
+  background-color: #f56c6c;
+}

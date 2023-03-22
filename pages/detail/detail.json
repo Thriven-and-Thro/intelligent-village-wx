@@ -1,7 +1,6 @@
 {
   "usingComponents": {
     "content": "/components/content/content",
-    "comment": "./component/comment/comment",
     "deliver": "/components/deliver/deliver"
   }
 }

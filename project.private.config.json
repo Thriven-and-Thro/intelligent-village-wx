@@ -41,6 +41,12 @@
           "pathName": "pages/article/article",
           "query": "art_id=item.art_id",
           "scene": null
+        },
+        {
+          "name": "pages/detail/detail",
+          "pathName": "pages/detail/detail",
+          "query": "fee_id=0",
+          "scene": null
         }
       ]
     }

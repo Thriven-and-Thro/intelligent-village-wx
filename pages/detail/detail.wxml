@@ -1,0 +1,18 @@
+<!--pages/detail/detail.wxml-->
+<view class="detail">
+  <view class="feedback">
+    <view>反馈详情
+      <text class="{{state===0 ? '' : (state===1 ? 'success' : 'reject')}}">{{textByState}}</text>
+    </view>
+    <content content="{{content}}" user="{{user}}" date="{{date}}"></content>
+  </view>
+  <view class="area_reply {{state===1 ? 'success' : 'reject'}}" wx:if="{{area_reply.length!==0}}">
+    <view>管理员回复</view>
+    <view>{{area_reply}}</view>
+  </view>
+  <view class="user_reply" wx:if="{{user_reply.length!==0}}">
+    <view>反馈者回复</view>
+    <view>{{user_reply}}</view>
+  </view>
+</view>
+<deliver wx:if="{{display}}"></deliver>

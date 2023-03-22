@@ -1,17 +1,23 @@
-// pages/article/article.js
+// pages/detail/detail.js
+const { getStorage } = require('../../utils/cache')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    content: '<p>aaa</p><p><br></p><table class="table table-bordered"><tbody><tr><td class="td"><br></td><td class="td"><br></td></tr><tr><td class="td"><br></td><td class="td"><br></td></tr><tr><td class="td"><br></td><td class="td"><br></td></tr></tbody></table>',
+    content: 'hfjksdfhjksdfhksd',
     date: '2023/03/21',
     user: {
-      name: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      name: 'a',
       avatar: '/static/icon/default_avatar.jpg'
     },
-    commentItems: []
+    state: 1,
+    area_reply: 'ahdaskjdhasjkdh',
+    user_reply: "",
+    textByState: '待处理',
+    display: false
   },
 
   /**
@@ -19,8 +25,25 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    // todo 请求文章
-    // todo 请求评论
+    // todo 请求数据
+
+    // 处理标签
+    if (this.data.state === 1) {
+      this.setData({
+        textByState: '已处理'
+      })
+    } else if (this.data.state === 2) {
+      this.setData({
+        textByState: '已拒绝'
+      })
+    }
+
+    // 处理发表输入框
+    if (this.data.state !== 0 && this.data.user_reply.length === 0 && getStorage('user').name === this.data.user.name) {
+      this.setData({
+        display: true
+      })
+    }
   },
 
   /**

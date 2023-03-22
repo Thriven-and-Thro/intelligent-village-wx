@@ -1,22 +1,13 @@
 <!--pages/article/article.wxml-->
 <view class="article">
-  <view class="article-detail">
-    <view class="detail-user">
-      <image src="{{user.avatar}}"></image>
-      <view class="user-name over">{{user.name}}</view>
-      <view class="date">{{date}}</view>
-    </view>
-    <view class="detail-text">
-      <rich-text space="nbsp" nodes="{{content}}" user-select="true"></rich-text>
-    </view>
-  </view>
+  <content content="{{content}}" user="{{user}}" date="{{date}}"></content>
   <view class="article-comments">
     <view class="comments-title">
       <view>评论</view>
       <view>{{commentItems.length}}条</view>
     </view>
-    <comment wx:for="commentItems" wx:key="com_id" content="{{item.content}}" date="{{item.date}}" user="{{item.user}}"
-      com_id="{{item.com_id}}"></comment>
+    <comment wx:for="{{commentItems}}" wx:key="com_id" content="{{item.content}}" date="{{item.date}}"
+      user="{{item.user}}" com_id="{{item.com_id}}"></comment>
   </view>
-
 </view>
+<deliver></deliver>

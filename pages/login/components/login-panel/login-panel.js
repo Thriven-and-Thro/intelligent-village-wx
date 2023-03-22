@@ -30,9 +30,12 @@ Component({
               setStorage("user", {
                 name: this.data.formData.name,
                 password: this.data.formData.password,
-                token: result.token,
+                token: result.token
               });
               setStorage("isChecked", this.data.checked);
+              wx.switchTab({
+                url: '/pages/home/home'
+              })
             } else {
               wx.showToast({
                 title: '用户名或密码错误',
@@ -50,9 +53,7 @@ Component({
       //   .validate()
       //   .then((res) => {
       this.loginRequest(form.detail.value.name, form.detail.value.password);
-      wx.switchTab({
-        url: '/pages/home/home'
-      })
+
       //   })
       //   .catch((err) => {
       //     this.triggerEvent("openMessage", "error", err[0].errorMessage);

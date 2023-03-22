@@ -32,7 +32,6 @@ Component({
 
   lifetimes: {
     attached() {
-      console.log(this.properties.cardData.state);
       if(this.properties.cardData.state > 0) {
         let urlByState = '/static/icon/待处理.png'
         switch(this.properties.cardData.state) {

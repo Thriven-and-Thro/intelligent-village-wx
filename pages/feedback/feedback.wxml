@@ -1,7 +1,8 @@
 <!--pages/feedback/feedback.wxml-->
 <view class="feedback container">
   <view class="feedback-tabel">
-    <feedback-card card-data="{{cardData}}"></feedback-card>
+    <feedback-card wx:for="{{cardData}}" wx:key="fee_id" card-data="{{item}}" bindtap="feedbackClick"
+      data-id="{{item.fee_id}}"></feedback-card>
   </view>
   <view class="feedback-emit">
     <image src="/static/icon/我要反馈.png"></image>
