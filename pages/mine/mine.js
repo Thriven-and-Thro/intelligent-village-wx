@@ -1,5 +1,5 @@
 // pages/mine/mine.js
-const { getStorage, removeStorage } = require('../../utils/cache')
+const { getStorage } = require('../../utils/cache')
 
 Page({
 

@@ -1,4 +1,7 @@
 // pages/myMessage/myMessage.js
+const { getStorage, removeStorage } = require('../../utils/cache')
+const { request } = require('../../utils/request')
+
 Page({
 
   /**
@@ -29,8 +32,18 @@ Page({
   },
 
   formSubmit(form) {
-    console.log(form.detail.value.phone, form.detail.value.password, form.detail.value.mail);
-    // todo 发送修改请求
+    const user_id = getStorage('user').user_id
+    const { phone, password, mail } = this.data.formData
+    
+    request("/user/" + user_id, "POST", {
+      phone, password, mail
+    })
+      .then((result) => {
+        console.log(result);
+      })
+
+    removeStorage('user')
+    removeStorage('isChecked')
 
     // 跳转登录页
     wx.reLaunch({
@@ -50,6 +63,14 @@ Page({
    */
   onReady: function () {
     // todo 请求原数据
+    const { password, phone, mail } = getStorage('user')
+    this.setData({
+      formData: {
+        password,
+        phone,
+        mail
+      }
+    })
   },
 
   /**
