@@ -29,8 +29,6 @@ Page({
   },
 
   exitClick() {
-    removeStorage("user")
-    removeStorage("isChecked")
     wx.reLaunch({
       url: '/pages/login/login'
     })

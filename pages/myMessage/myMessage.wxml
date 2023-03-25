@@ -1,2 +1,15 @@
 <!--pages/myMessage/myMessage.wxml-->
-<text>pages/myMessage/myMessage.wxml</text>
+<view class="my-message container">
+  <view class="card">
+    <form catchsubmit="formSubmit">
+      <text>个人信息</text>
+      <input type="password" name="password" value="{{formData.password}}" bindinput="modelValue" data-key="password"
+        placeholder="请输入密码" />
+      <input type="input" name="phone" value="{{formData.phone}}" bindinput="modelValue" data-key="phone"
+        placeholder="请输入手机号码" />
+        <input type="input" name="phone" value="{{formData.mail}}" bindinput="modelValue" data-key="mail"
+        placeholder="请输入邮箱地址" />
+      <button formType="submit">修改</button>
+    </form>
+  </view>
+</view>

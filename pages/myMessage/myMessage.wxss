@@ -1,1 +1,46 @@
 /* pages/myMessage/myMessage.wxss */
+.my-message {
+  display: flex;
+  justify-content: center;
+
+  height: 100vh;
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+}
+
+.my-message .card {
+  width: 80vw;
+  height: fit-content;
+  padding: 25rpx;
+
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+  text-align: center;
+  border-radius: 45rpx;
+  background-color: #fff;
+  box-shadow: 0 0 40rpx rgba(0, 0, 0, 0.5);
+}
+
+.my-message .card text {
+  color: #333;
+  font-size: 50rpx;
+  font-weight: bold;
+  line-height: 250rpx;
+}
+
+.my-message .card input {
+  padding: 10rpx;
+  margin-bottom: 36rpx;
+  border-bottom: 1px solid #333333;
+  font-size: 35rpx;
+}
+
+.my-message .card button {
+  width: 100%;
+  text-align: center;
+  line-height: 45rpx;
+  margin: 125rpx 0 10rpx 0;
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+  color: #fff;
+}

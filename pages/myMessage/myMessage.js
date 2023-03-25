@@ -5,7 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
+    formData: {
+      password: '',
+      phone: '',
+      mail: ''
+    }
+  },
 
+  modelValue(e) {
+    if (e.target.dataset.key === 'phone') {
+      this.setData({
+        'formData.phone': e.detail.value
+      })
+    } else if (e.target.dataset.key === 'password') {
+      this.setData({
+        'formData.password': e.detail.value
+      })
+    } else {
+      this.setData({
+        'formData.mail': e.detail.value
+      })
+    }
+  },
+
+  formSubmit(form) {
+    console.log(form.detail.value.phone, form.detail.value.password, form.detail.value.mail);
+    // todo 发送修改请求
+
+    // 跳转登录页
+    wx.reLaunch({
+      url: '/pages/login/login'
+    })
   },
 
   /**
@@ -19,7 +49,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // todo 请求原数据
   },
 
   /**

@@ -65,6 +65,12 @@
           "pathName": "pages/myComment/myComment",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/myMessage/myMessage",
+          "pathName": "pages/myMessage/myMessage",
+          "query": "",
+          "scene": null
         }
       ]
     }
