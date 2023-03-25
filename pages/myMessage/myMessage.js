@@ -34,13 +34,10 @@ Page({
   formSubmit(form) {
     const user_id = getStorage('user').user_id
     const { phone, password, mail } = this.data.formData
-    
+
     request("/user/" + user_id, "POST", {
       phone, password, mail
     })
-      .then((result) => {
-        console.log(result);
-      })
 
     removeStorage('user')
     removeStorage('isChecked')

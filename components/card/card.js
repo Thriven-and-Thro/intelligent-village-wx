@@ -1,4 +1,7 @@
 // components/card/card.js
+const { formateDate } = require('../../utils/formateDate')
+const { request } = require('../../utils/request')
+
 Component({
   /**
    * 组件的属性列表
@@ -7,11 +10,9 @@ Component({
     cardData: {
       type: Object,
       value: {
-        header: '',
+        title: '',
         content: '',
-        userId: '',
-        count: 0,
-        date: '',
+        updateTime: '',
         art_id: ''
       }
     }
@@ -21,7 +22,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    date: '',
+    count: 0,
   },
 
   /**
@@ -29,5 +31,31 @@ Component({
    */
   methods: {
 
+  },
+
+  observers: {
+    cardData(val) {
+      request('/search', 'POST', {
+        table: "comment",
+        record: {
+        },
+        art_id: val.art_id
+      }).then((res) => {
+        if (res[0]) {
+          this.setData({
+            count: res[0].count,
+            date: formateDate(val.updateTime)
+          })
+        }
+      })
+    }
+  },
+
+  lifetimes: {
+    ready() {
+      this.setData({
+        date: formateDate(this.properties.cardData.updateTime)
+      })
+    }
   }
 })
