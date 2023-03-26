@@ -1,3 +1,6 @@
+const { getStorage } = require("../../utils/cache");
+const { request } = require("../../utils/request");
+
 // pages/emitFeedback/emitFeedback.js
 Page({
 
@@ -8,10 +11,16 @@ Page({
     value: ''
   },
 
+  feedbackInput(e) {
+    this.setData({
+      value: e.detail.value
+    })
+  },
+
   uploadClick() {
     wx.chooseMedia({
       count: 9,
-      mediaType: ['image','video'],
+      mediaType: ['image', 'video'],
       sourceType: ['album', 'camera'],
       maxDuration: 30,
       camera: 'back',
@@ -29,7 +38,7 @@ Page({
       formData: {
         'user': 'test'
       },
-      success (res){
+      success(res) {
         const data = res.data
         //do something
       }
@@ -38,6 +47,16 @@ Page({
 
   emitClick() {
     // todo 发送创建反馈请求
+    request('/feedback', 'POST', {
+      aid: getStorage('aid'),
+      area_reply: "",
+      content: this.data.value,
+      state: 0,
+      user_id: getStorage('user').user_id,
+      user_reply: ""
+    }).then(res => {
+      wx.navigateBack()
+    })
     // todo 调用upload
   },
 

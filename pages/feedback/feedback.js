@@ -27,7 +27,8 @@ Page({
       record: {},
       aid: getStorage("aid"),
       offset: this.data.offset,
-      limit: this.data.limit
+      limit: this.data.limit,
+      desc: true
     }).then(res => {
       this.setData({
         cardData: res[0].data
