@@ -1,3 +1,6 @@
+const { getStorage } = require("../../utils/cache")
+const { request } = require("../../utils/request")
+
 // pages/myFeedback/myFeedback.js
 Page({
 
@@ -5,13 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cardData: [{
-      content: "contentcontentcontentcontentcontentcontentcontentcontentcontentcontent",
-      userId: '1',
-      state: 2,
-      date: '20223/03/20',
-      fee_id: '0'
-    }]
+    cardData: []
   },
   feedbackClick(e) {
     wx.navigateTo({
@@ -22,7 +19,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    request('/user/feedback/' + getStorage('user').user_id, 'GET').then(res => {
+      this.setData({
+        cardData: res
+      })
+    })
   },
 
   /**
