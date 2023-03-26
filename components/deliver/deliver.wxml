@@ -1,5 +1,5 @@
 <!--components/deliver/deliver.wxml-->
 <view class="deliver">
-    <input type="text" placeholder="我来评论..." />
-    <button>发表</button>
-  </view>
+  <input type="text" placeholder="我来评论..." value="{{comment}}" bindinput="modelComment" />
+  <button bindtap="emitClick">发表</button>
+</view>

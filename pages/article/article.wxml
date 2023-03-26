@@ -7,8 +7,8 @@
       <view>评论</view>
       <view>{{commentItems.length}}条</view>
     </view>
-    <comment wx:for="{{commentItems}}" wx:key="com_id" content="{{item.content}}" date="{{item.date}}"
-      user="{{item.user}}" com_id="{{item.com_id}}"></comment>
+    <comment wx:for="{{commentItems}}" wx:key="com_id" content="{{item.content}}" updateTime="{{item.updateTime}}"
+      user_id="{{item.user_id}}" com_id="{{item.com_id}}"></comment>
   </view>
 </view>
-<deliver></deliver>
+<deliver art_id="{{art_id}}" bind:updateComments="updateComments"></deliver>

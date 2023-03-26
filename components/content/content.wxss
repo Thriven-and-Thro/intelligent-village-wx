@@ -1,24 +1,6 @@
 /* components/content/content.wxss */
-.article-detail .detail-user {
-  display: flex;
-  align-items: center;
 
-  padding: 20rpx 0 40rpx 0;
-  height: 80rpx;
-}
-
-.article-detail .detail-user image {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 100%;
-  object-fit: cover;
-}
-
-.article-detail .detail-user .user-name {
-  flex: 1;
-  padding: 0 20rpx;
-}
-
-.article-detail .detail-user .date {
+.article-detail .date {
+  margin-top: 10rpx;
   color: #a5a2c2;
 }

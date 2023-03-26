@@ -1,24 +1,21 @@
 // pages/article/component/comment.js
+const { request } = require('../../../../utils/request')
+const { formateDate } = require('../../../../utils/formateDate')
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    content:{
+    content: {
       type: String,
       value: ''
     },
-    date: {
-      type:String,
+    updateTime: {
+      type: String,
       value: ''
     },
-    user: {
-      type: Object,
-      value: {
-        name:'',
-        avatar: '/static/icon/default_avatar.jpg'
-      }
-    },
+    user_id: 0,
     com_id: 0
   },
 
@@ -26,6 +23,11 @@ Component({
    * 组件的初始数据
    */
   data: {
+    user: {
+      name: '',
+      avatar: '/static/icon/default_avatar.jpg'
+    },
+    date: ''
   },
 
   /**
@@ -33,5 +35,18 @@ Component({
    */
   methods: {
 
+  },
+
+  lifetimes: {
+    ready() {
+      request("/user/" + this.data.user_id, "GET").then((res) => {
+        this.setData({
+          user: res
+        })
+      })
+      this.setData({
+        date: formateDate(this.properties.updateTime)
+      })
+    }
   }
 })

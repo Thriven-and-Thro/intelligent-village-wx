@@ -42,6 +42,12 @@ Page({
     })
   },
 
+  detailClick(e) {
+    wx.navigateTo({
+      url: '/pages/article/article?art_id=' + e.target.dataset.id
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

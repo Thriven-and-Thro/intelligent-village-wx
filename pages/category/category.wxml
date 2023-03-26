@@ -8,7 +8,7 @@
     <block wx:for="{{[0,1,2,3]}}" wx:key="*this">
       <view wx:if="{{item === state}}">
         <block wx:for="{{cardItems}}" wx:key="art_id">
-          <card cardData="{{item}}"></card>
+          <card cardData="{{item}}" bindtap="detailClick" data-id="{{item.art_id}}"></card>
         </block>
       </view>
     </block>

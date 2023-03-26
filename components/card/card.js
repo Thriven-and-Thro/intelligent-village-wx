@@ -50,12 +50,4 @@ Component({
       })
     }
   },
-
-  lifetimes: {
-    ready() {
-      this.setData({
-        date: formateDate(this.properties.cardData.updateTime)
-      })
-    }
-  }
 })

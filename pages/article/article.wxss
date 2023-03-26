@@ -1,6 +1,6 @@
 /* pages/article/article.wxss */
 .article {
-  padding: 0 35rpx;
+  padding: 0 35rpx 60rpx 35rpx;
 }
 
 .article .article-title {

@@ -1,4 +1,8 @@
 /* pages/home/home.wxss */
+.home {
+  padding: 0 35rpx;
+}
+
 .home .user-info {
   display: flex;
   flex-direction: column;

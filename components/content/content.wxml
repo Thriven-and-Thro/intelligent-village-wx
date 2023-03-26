@@ -1,12 +1,8 @@
 <!--components/content/content.wxml-->
 <view class="article-detail">
-    <view class="detail-user">
-      <image src="{{user.avatar}}"></image>
-      <view class="user-name over">{{user.name}}</view>
-      <view class="date">{{date}}</view>
-    </view>
-    <view class="detail-text">
-      <rich-text space="nbsp" nodes="{{content}}" wx:if="{{rich}}"></rich-text>
-      <text wx:if="{{!rich}}">{{content}}</text>
-    </view>
+  <view class="detail-text">
+    <rich-text space="nbsp" nodes="{{content}}" wx:if="{{rich}}"></rich-text>
+    <text wx:if="{{!rich}}">{{content}}</text>
   </view>
+  <view class="date">{{date}}</view>
+</view>
