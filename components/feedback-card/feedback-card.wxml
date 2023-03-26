@@ -4,8 +4,8 @@
       <view class="card-content">{{cardData.content}}</view>
     </view>
     <view class="card-footer">
-      <view class="footer-userid">{{cardData.userId}}</view>
-      <view class="footer-date">{{cardData.date}}</view>
+      <view class="footer-userid">{{user_name}}</view>
+      <view class="footer-date">{{date}}</view>
     </view>
     <image src="{{urlByState}}">
     </image>

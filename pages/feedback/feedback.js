@@ -1,16 +1,15 @@
+const { getStorage } = require("../../utils/cache")
+const { request } = require("../../utils/request")
+
 // pages/feedback/feedback.js
 Page({
   /**
    * 组件的初始数据
    */
   data: {
-    cardData: [{
-      content: "contentcontentcontentcontentcontentcontentcontentcontentcontentcontent",
-      userId: '1',
-      state: 2,
-      date: '20223/03/20',
-      fee_id: '0'
-    }]
+    cardData: [],
+    offset: 0,
+    limit: 10
   },
   feedbackClick(e) {
     wx.navigateTo({
@@ -20,6 +19,19 @@ Page({
   emitClick() {
     wx.navigateTo({
       url: '/pages/emitFeedback/emitFeedback'
+    })
+  },
+  onReady() {
+    request("/search", "POST", {
+      table: "feedback",
+      record: {},
+      aid: getStorage("aid"),
+      offset: this.data.offset,
+      limit: this.data.limit
+    }).then(res => {
+      this.setData({
+        cardData: res[0].data
+      })
     })
   }
 })

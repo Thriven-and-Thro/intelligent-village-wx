@@ -1,3 +1,6 @@
+const { request } = require("../../utils/request")
+const { formateDate } = require("../../utils/formateDate")
+
 // pages/feedback/feedback-card.js
 Component({
   /**
@@ -8,9 +11,9 @@ Component({
       type: Object,
       value: {
         content: '',
-        userId: '',
+        user_id: '',
         state: 0,
-        date: '',
+        updateTime: '',
         fee_id: ''
       }
     }
@@ -20,7 +23,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    urlByState: '/static/icon/待处理.png'
+    urlByState: '',
+    date: '',
+    user_name: ''
   },
 
   /**
@@ -32,20 +37,26 @@ Component({
 
   lifetimes: {
     attached() {
-      if(this.properties.cardData.state > 0) {
-        let urlByState = '/static/icon/待处理.png'
-        switch(this.properties.cardData.state) {
-          case 1:
-            urlByState = '/static/icon/已处理.png'
-            break
-          case 2:
-            urlByState = '/static/icon/已拒绝.png'
-            break
-        }
-        this.setData({
-          urlByState: urlByState
-        })
+      let urlByState = '/static/icon/待处理.png'
+      switch (this.properties.cardData.state) {
+        case 1:
+          urlByState = '/static/icon/已处理.png'
+          break
+        case 2:
+          urlByState = '/static/icon/已拒绝.png'
+          break
       }
+
+      request("/user/" + this.properties.cardData.user_id, "GET").then((res) => {
+        this.setData({
+          user_name: res.name
+        })
+      })
+
+      this.setData({
+        urlByState: urlByState,
+        date: formateDate(this.properties.cardData.updateTime),
+      })
     }
   }
 })
