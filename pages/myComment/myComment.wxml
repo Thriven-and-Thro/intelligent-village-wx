@@ -1,11 +1,8 @@
 <!--pages/myComment/myComment.wxml-->
 <view class="my-comment container">
   <view class="title">我的评论</view>
-  <view class="comment" wx:for="{{commentItems}}" wx:key="com_id" bindtap="articleClick" data-id="{{item.cardData.art_id}}">
+  <view class="comment" wx:for="{{commentItems}}" wx:key="com_id" bindtap="articleClick" data-id="{{item.art_id}}">
     <view class="content">{{item.content}}</view>
-    <view class="comment-card">
-      <card cardData="{{item.cardData}}"></card>
-    </view>
     <view class="date">{{item.date}}</view>
   </view>
 </view>

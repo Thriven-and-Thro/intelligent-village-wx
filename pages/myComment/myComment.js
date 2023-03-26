@@ -1,35 +1,15 @@
 // pages/myComment/myComment.js
+const { getStorage } = require("../../utils/cache")
+const { formateDate } = require("../../utils/formateDate")
+const { request } = require("../../utils/request")
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    commentItems: [
-      {
-        content: 'comentcomentcomentcomentcomentcoment',
-        date: '2023/03/22',
-        cardData: {
-          header: 'titletitletitletitletitletitletitletitletitle',
-          content: 'contentcontentcontentcontentcontentcontentcontentcontent',
-          userId: '1',
-          count: 0,
-          date: '2023/02/22',
-          art_id: '1'
-        }
-      }, {
-        content: 'comentcomentcomentcomentcomentcoment',
-        date: '2023/03/22',
-        cardData: {
-          header: 'titletitletitletitletitletitletitletitletitle',
-          content: 'contentcontentcontentcontentcontentcontentcontentcontent',
-          userId: '1',
-          count: 0,
-          date: '2023/02/22',
-          art_id: '1'
-        }
-      }
-    ]
+    commentItems: []
   },
 
   articleClick(e) {
@@ -42,7 +22,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    request('/user/comment/' + getStorage('user').user_id, 'GET').then(res => {
+      res.map((v) => v.date = formateDate(v.updateTime))
+      this.setData({
+        commentItems: res
+      })
+    })
   },
 
   /**

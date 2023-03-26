@@ -17,10 +17,6 @@
   border-radius: 30rpx;
 }
 
-.my-comment .comment .card {
-  background-color: #dfe2ee;
-}
-
 .my-comment .comment .content {
   padding-bottom: 20rpx;
   word-wrap: break-word;
