@@ -12,16 +12,7 @@ Page({
     userName: "",
     currentDate: "",
     region: [],
-    recommendCardItems: [
-      {
-        header: 'recommendrecommendrecommendrecommendrecommend',
-        content: 'contentcontentcontentcontentcontentcontentcontent',
-        userId: '1',
-        count: 999,
-        date: '2023/03/20',
-        art_id: 1
-      }
-    ],
+    recommendCardItems: [],
     hotCardItems: []
   },
 
@@ -72,12 +63,35 @@ Page({
       currentDate: formatTime(new Date()).split(' ')[0]
     })
     this.requestAid(area)
+
+    request('/hot?aid=' + getStorage('aid'), 'GET').then(res => {
+      let results = []
+      for (let i = 0; i < res.length; i++) {
+        request('/article/' + res[i].art_id, 'GET').then(result => {
+          results.push(result[0])
+
+          if (results.length === res.length) {
+            this.setData({
+              hotCardItems: results
+            })
+          }
+        })
+      }
+    })
+
+    request('/recommend?aid=' + getStorage('aid'), 'GET').then(res => {
+      this.setData({
+        recommendCardItems: res
+      })
+    })
   },
+
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
 
   },
 

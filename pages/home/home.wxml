@@ -20,11 +20,14 @@
   </view>
   <view wx:if="{{region.length > 0}}">
     <mode title="{{'热门'}}">
-      <card></card>
+      <block wx:for="{{hotCardItems}}" wx:key="art_id">
+          <card cardData="{{item}}" bindtap="detailClick" data-id="{{item.art_id}}"></card>
+        </block>
     </mode>
     <mode title="{{'推荐'}}">
-      <card wx:for="{{recommendCardItems}}" wx:key="art_id" cardData="{{item}}" bindtap="detailClick"
-        data-id="item.art_id"></card>
+      <block wx:for="{{recommendCardItems}}" wx:key="art_id">
+          <card cardData="{{item}}" bindtap="detailClick" data-id="{{item.art_id}}"></card>
+        </block>
     </mode>
   </view>
   <view wx:else>
