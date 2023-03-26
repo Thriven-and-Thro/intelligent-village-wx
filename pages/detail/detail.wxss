@@ -4,6 +4,26 @@
   padding: 0 35rpx;
 }
 
+.detail .detail-user {
+  display: flex;
+  align-items: center;
+
+  padding: 20rpx 0 40rpx 0;
+  height: 80rpx;
+}
+
+.detail .detail-user image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.detail .detail-user .user-name {
+  flex: 1;
+  padding: 0 20rpx;
+}
+
 .detail .feedback,
 .detail .area_reply,
 .detail .user_reply {

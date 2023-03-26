@@ -2,17 +2,21 @@
 <view class="detail">
   <view class="feedback">
     <view>反馈详情
-      <text class="{{state===0 ? '' : (state===1 ? 'success' : 'reject')}}">{{textByState}}</text>
+      <text class="{{detail.state===0 ? '' : (detail.state===1 ? 'success' : 'reject')}}">{{textByState}}</text>
     </view>
-    <content content="{{content}}" user="{{user}}" date="{{date}}" rich="{{false}}"></content>
+    <view class="detail-user">
+      <image src="{{user.avatar}}"></image>
+      <view class="user-name over">{{user.name}}</view>
+    </view>
+    <content content="{{detail.content}}" date="{{date}}" rich="{{false}}"></content>
   </view>
-  <view class="area_reply {{state===1 ? 'success' : 'reject'}}" wx:if="{{area_reply.length!==0}}">
+  <view class="area_reply {{detail.state===1 ? 'success' : 'reject'}}" wx:if="{{detail.area_reply.length!==0}}">
     <view>管理员回复</view>
-    <view>{{area_reply}}</view>
+    <view>{{detail.area_reply}}</view>
   </view>
-  <view class="user_reply" wx:if="{{user_reply.length!==0}}">
+  <view class="user_reply" wx:if="{{detail.user_reply.length!==0}}">
     <view>反馈者回复</view>
-    <view>{{user_reply}}</view>
+    <view>{{detail.user_reply}}</view>
   </view>
 </view>
 <deliver wx:if="{{display}}"></deliver>
