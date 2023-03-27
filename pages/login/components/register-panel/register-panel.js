@@ -1,3 +1,5 @@
+const { request } = require("../../../../utils/request")
+
 // pages/login/components/register-panel/register-panel.js
 Component({
   /**
@@ -15,8 +17,7 @@ Component({
       name: "",
       password: "",
       confirmPassword: ""
-    },
-    rules: "",
+    }
   },
 
   /**
@@ -25,25 +26,60 @@ Component({
   methods: {
     formSubmit(form) {
       // 校验
-      // this.$refs.form
-      //   .validate()
-      //   .then((res) => {
-      // this.loginRequest(form.detail.value.name, form.detail.value.password);
-      wx.switchTab({
-        url: '/pages/login/login'
+      const len = this.data.formData.password.length
+      if (!this.data.formData.name.length) {
+        wx.showModal({
+          title: '错误',
+          content: '必须输入用户名'
+        })
+
+        return
+      }
+
+      if (!len) {
+        wx.showModal({
+          title: '错误',
+          content: '必须输入密码'
+        })
+
+        return
+      }
+
+      if (len < 6 || len > 20) {
+        wx.showModal({
+          title: '错误',
+          content: '密码长度需在 6 到 20 个字符之间'
+        })
+
+        return
+      }
+
+      if (this.data.formData.password !== this.data.formData.confirmPassword) {
+        console.log(this.data.formData.password, this.data.formData.confirmPassword);
+        wx.showModal({
+          title: '错误',
+          content: '两次输入的密码不一致'
+        })
+
+        return
+      }
+
+      request('/user', "POST", {
+        name: this.data.formData.name,
+        password: this.data.formData.password
+      }).then(res => {
+        wx.reLaunch({
+          url: '/pages/login/login'
+        })
       })
-      //   })
-      //   .catch((err) => {
-      //     this.triggerEvent("openMessage", "error", err[0].errorMessage);
-      //   });
     },
 
     modelValue(e) {
-      if(e.target.dataset.key === 'name') {
+      if (e.target.dataset.key === 'name') {
         this.setData({
           'formData.name': e.detail.value
         })
-      } else if(e.target.dataset.key === 'password'){
+      } else if (e.target.dataset.key === 'password') {
         this.setData({
           'formData.password': e.detail.value
         })
