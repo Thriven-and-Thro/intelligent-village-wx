@@ -19,4 +19,4 @@
     <view>{{detail.user_reply}}</view>
   </view>
 </view>
-<deliver wx:if="{{display}}"></deliver>
+<deliver wx:if="{{display}}" bind:update="emitClick"></deliver>

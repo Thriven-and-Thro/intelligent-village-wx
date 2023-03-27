@@ -7,16 +7,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    art_id: {
-      type: Number
-    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    comment: ''
+    input: ''
   },
 
   /**
@@ -25,24 +22,15 @@ Component({
   methods: {
     modelComment(e) {
       this.setData({
-        comment: e.detail.value
+        input: e.detail.value
       })
     },
 
     emitClick() {
-      const { user_id } = getStorage('user')
-      request('/comment', 'POST', {
-        content: this.data.comment,
-        user_id,
-        art_id: this.properties.art_id
-      }).then((res) => {
-        this.setData({
-          comment: ''
-        })
-        this.triggerEvent('updateComments')
+      this.triggerEvent('update', this.data.input)
+      this.setData({
+        input: ''
       })
-
-
     }
   }
 })

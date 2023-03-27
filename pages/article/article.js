@@ -1,4 +1,5 @@
 // pages/article/article.js
+const { getStorage } = require('../../utils/cache')
 const { formateDate } = require('../../utils/formateDate')
 const { request } = require('../../utils/request')
 
@@ -22,13 +23,25 @@ Page({
       },
       art_id: this.data.art_id,
       offset: 0,
-      limit: 1000
+      limit: 1000,
+      desc: true
     }).then((res) => {
       if (res[0]) {
         this.setData({
           commentItems: res[0].data
         })
       }
+    })
+  },
+
+  emitClick(e) {
+    const { user_id } = getStorage('user')
+    request('/comment', 'POST', {
+      content: e.detail,
+      user_id,
+      art_id: this.data.art_id
+    }).then((res) => {
+      this.updateComments()
     })
   },
 

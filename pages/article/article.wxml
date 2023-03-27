@@ -11,4 +11,4 @@
       user_id="{{item.user_id}}" com_id="{{item.com_id}}"></comment>
   </view>
 </view>
-<deliver art_id="{{art_id}}" bind:updateComments="updateComments"></deliver>
+<deliver bind:update="emitClick"></deliver>
