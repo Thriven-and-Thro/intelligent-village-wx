@@ -1,5 +1,5 @@
 // pages/article/component/comment.js
-const { request } = require('../../../../utils/request')
+const { request, baseURL } = require('../../../../utils/request')
 const { formateDate } = require('../../../../utils/formateDate')
 
 Component({
@@ -25,7 +25,7 @@ Component({
   data: {
     user: {
       name: '',
-      avatar: '/static/icon/default_avatar.jpg'
+      avatar: ''
     },
     date: ''
   },
@@ -40,6 +40,7 @@ Component({
   lifetimes: {
     ready() {
       request("/user/" + this.data.user_id, "GET").then((res) => {
+        res.avatar = `${baseURL}/${res.avatar}-sm.jpg`
         this.setData({
           user: res
         })

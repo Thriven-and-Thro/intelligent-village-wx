@@ -1,5 +1,6 @@
 // pages/mine/mine.js
-const { getStorage } = require('../../utils/cache')
+const { getStorage, setStorage } = require('../../utils/cache')
+const { baseURL, request } = require('../../utils/request')
 
 Page({
 
@@ -7,7 +8,7 @@ Page({
    * 组件的初始数据
    */
   data: {
-    avatar: '/static/icon/default_avatar.jpg',
+    avatar: '',
     name: '',
     cards: [{
       title: "我的反馈",
@@ -22,9 +23,15 @@ Page({
   },
 
   onReady() {
-    this.setData({
-      name: getStorage('user').name,
-      avatar: getStorage('user').avatar ?? '/static/icon/default_avatar.jpg'
+    request('/user/' + getStorage('user').user_id, 'GET').then(res => {
+      setStorage('user', {
+        ...getStorage('user'),
+        avatar: res.avatar
+      })
+      this.setData({
+        name: res.name,
+        avatar: `${baseURL}/${res.avatar}`
+      })
     })
   },
 
@@ -33,17 +40,45 @@ Page({
       url: '/pages/login/login'
     })
   },
+
   goMineClick(e) {
     let url = ''
-    if(e.target.dataset.index === 0) {
+    if (e.target.dataset.index === 0) {
       url = '/pages/myFeedback/myFeedback'
-    } else if(e.target.dataset.index === 1) {
+    } else if (e.target.dataset.index === 1) {
       url = '/pages/myComment/myComment'
-    }else {
+    } else {
       url = '/pages/myMessage/myMessage'
     }
     wx.navigateTo({
       url
     })
+  },
+
+  uploadImg() {
+    const that = this
+
+    wx.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      success: (res) => {
+        const tempFilePath = res.tempFiles[0].tempFilePath
+        wx.uploadFile({
+          url: `${baseURL}/user/${getStorage('user').user_id}/img`,
+          method: 'POST',
+          header: {
+            "content-type": "multipart/form-data",
+            Authorization: 'Bearer ' + getStorage('user').token
+          },
+          filePath: tempFilePath,
+          name: 'avatar',
+          // 成功回调
+          success(res) {
+            that.onReady()
+          }
+        })
+      }
+    })
+
   }
 })

@@ -12,13 +12,6 @@ Component({
       type: String,
       value: ''
     },
-    user: {
-      type: Object,
-      value: {
-        name: '',
-        avatar: ''
-      }
-    },
     rich: {
       type: Boolean,
       value: true

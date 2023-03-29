@@ -1,7 +1,7 @@
 // pages/detail/detail.js
 const { getStorage } = require('../../utils/cache');
 const { formateDate } = require('../../utils/formateDate');
-const { request } = require('../../utils/request')
+const { request, baseURL } = require('../../utils/request')
 
 Page({
 
@@ -53,6 +53,7 @@ Page({
           display = true
         }
 
+        res.avatar = `${baseURL}/${res.avatar}-sm.jpg`
         this.setData({
           user: res,
           display

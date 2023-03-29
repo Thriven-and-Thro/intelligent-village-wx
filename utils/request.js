@@ -2,9 +2,11 @@
 const { getStorage }  = require("../utils/cache")
 
 const baseURL = "http://127.0.0.1:8000";
+// const baseURL = "http://192.168.31.67:8000";
 
-const request =  (url, method, data) => {
-  const config = { url: baseURL + url, method, data, header: {} };
+
+const request =  (url, method, data, ...arr) => {
+  const config = { url: baseURL + url, method, data, header:{}, ...arr};
   const token = getStorage("user")?.token;
   if (token) config.header.Authorization = `Bearer ${token}`;
 
@@ -32,6 +34,7 @@ const request =  (url, method, data) => {
 };
 
 module.exports = {
+  baseURL,
   request
 }
 

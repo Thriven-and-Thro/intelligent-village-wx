@@ -1,5 +1,5 @@
 // pages/myMessage/myMessage.js
-const { getStorage, removeStorage } = require('../../utils/cache')
+const { getStorage, removeStorage, setStorage } = require('../../utils/cache')
 const { request } = require('../../utils/request')
 
 Page({
@@ -10,6 +10,7 @@ Page({
   data: {
     formData: {
       password: '',
+      confirmPassword: '',
       phone: '',
       mail: ''
     }
@@ -24,6 +25,10 @@ Page({
       this.setData({
         'formData.password': e.detail.value
       })
+    } else if (e.target.dataset.key === 'confirmPassword') {
+      this.setData({
+        'formData.confirmPassword': e.detail.value
+      })
     } else {
       this.setData({
         'formData.mail': e.detail.value
@@ -32,20 +37,44 @@ Page({
   },
 
   formSubmit(form) {
-    const user_id = getStorage('user').user_id
-    const { phone, password, mail } = this.data.formData
+    const { user_id, password } = getStorage('user')
+    const formData = this.data.formData
+    
+    if(formData.password !== formData.confirmPassword) {
+      wx.showModal({
+        title: '错误',
+        content: '两次输入的密码不一致'
+      })
+      return 
+    }
 
     request("/user/" + user_id, "POST", {
-      phone, password, mail
+      phone: formData.phone,
+      password: formData.password,
+      mail: formData.mail
+    }).then(res => {
+      if (formData.password !== password) {
+        removeStorage('user')
+        removeStorage('isChecked')
+
+        // 跳转登录页
+        wx.reLaunch({
+          url: '/pages/login/login'
+        })
+      } else {
+        setStorage('user', {
+          ...getStorage('user'),
+          phone: formData.phone,
+          mail: formData.mail
+        })
+
+        wx.showModal({
+          title: '提示',
+          content: '修改成功'
+        })
+      }
     })
 
-    removeStorage('user')
-    removeStorage('isChecked')
-
-    // 跳转登录页
-    wx.reLaunch({
-      url: '/pages/login/login'
-    })
   },
 
   /**
@@ -64,6 +93,7 @@ Page({
     this.setData({
       formData: {
         password,
+        confirmPassword: password,
         phone,
         mail
       }

@@ -28,12 +28,8 @@ Component({
                 duration: 2000
               })
               setStorage("user", {
-                user_id: result.user_id,
-                name: this.data.formData.name,
-                password: this.data.formData.password,
-                phone: result.phone,
-                mail: result.mail,
-                token: result.token
+                ...result,
+                password: this.data.formData.password
               });
               setStorage("isChecked", this.data.checked);
               wx.switchTab({

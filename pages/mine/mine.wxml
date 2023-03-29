@@ -1,13 +1,13 @@
 <!--pages/mine/mine.wxml-->
 <view class="mine container">
   <view class="mine-header">
-    <view class="avatar">
-      <image src="{{avatar}}"></image>
+    <view class="avatar" bindtap="uploadImg">
+      <image src="{{avatar}}-lg.jpg"></image>
     </view>
     <view class="text over">{{name}}</view>
   </view>
   <view class="mine-content">
-    <mine-card wx:for="{{cards}}" title="{{item.title}}" wx:key="*this" bindtap="goMineClick" data-index="{{index}}"></mine-card>
+    <mine-card wx:for="{{cards}}" title="{{item.title}}" wx:key="index" bindtap="goMineClick" data-index="{{index}}"></mine-card>
     <button class="exit" bindtap="exitClick">退出登录</button>
   </view>
 </view>
