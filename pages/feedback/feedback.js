@@ -9,7 +9,8 @@ Page({
   data: {
     cardData: [],
     offset: 0,
-    limit: 10
+    loading: false,
+    count: 0
   },
   feedbackClick(e) {
     wx.navigateTo({
@@ -27,11 +28,17 @@ Page({
       record: {},
       aid: getStorage("aid"),
       offset: this.data.offset,
-      limit: this.data.limit,
+      limit: 10,
       desc: true
     }).then(res => {
+      const { count, data } = res[0]
+      for (let i = this.data.cardData.length-1; i >=0 ; i--) {
+        data.unshift(this.data.cardData[i])
+      }
+
       this.setData({
-        cardData: res[0].data
+        count,
+        cardData: data
       })
     })
   },
@@ -41,7 +48,7 @@ Page({
 
     this.setData({
       offset: 0,
-      limit: 10
+      cardData: []
     })
 
     Promise.all([this.onReady()]).then(res => {
@@ -52,4 +59,13 @@ Page({
   onPullDownRefresh: function () {
     this.onRefresh();
   },
+
+  onReachBottom: function () {
+    if (this.data.loading || this.data.count === this.data.cardData.length) return
+    this.setData({
+      offset: this.data.offset + 10,
+      loading: false
+    })
+    this.onReady()
+  }
 })

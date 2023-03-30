@@ -15,7 +15,8 @@ Page({
     commentItems: [],
     art_id: '',
     offset: 0,
-    limit: 10,
+    loading: false,
+    count: 0
   },
 
   updateComments() {
@@ -25,12 +26,17 @@ Page({
       },
       art_id: this.data.art_id,
       offset: this.data.offset,
-      limit: this.data.limit,
+      limit: 10,
       desc: true
     }).then((res) => {
       if (res[0]) {
+        const { count, data } = res[0]
+        for (let i = this.data.commentItems.length-1; i >=0 ; i--) {
+          data.unshift(this.data.commentItems[i])
+        }
         this.setData({
-          commentItems: res[0].data
+          count,
+          commentItems: data
         })
       }
     })
@@ -109,7 +115,7 @@ Page({
 
     this.setData({
       offset: 0,
-      limit: 10
+      commentItems: []
     })
 
     Promise.all([this.requestArticle(),
@@ -126,7 +132,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.loading || this.data.count === this.data.commentItems.length) return
+    this.setData({
+      offset: this.data.offset + 10,
+      loading: false
+    })
+    this.updateComments()
   },
 
   /**

@@ -14,12 +14,14 @@ Page({
     state: 0,
     cardItems: [],
     offset: 0,
-    limit: 10,
+    loading: false,
+    count: 0
   },
 
   labelClick(e) {
     this.setData({
-      state: e.target.dataset.index
+      state: e.target.dataset.index,
+      cardItems: []
     })
     this.requestCardItems()
   },
@@ -31,12 +33,18 @@ Page({
       },
       aid: getStorage('aid'),
       offset: this.data.offset,
-      limit: this.data.limit,
+      limit: 10,
       type: this.data.state + 1
     }).then((res) => {
       if (res[0]) {
+        const { count, data } = res[0]
+        for (let i = this.data.cardItems.length-1; i >=0 ; i--) {
+          data.unshift(this.data.cardItems[i])
+        }
+
         this.setData({
-          cardItems: res[0].data
+          count,
+          cardItems: data
         })
       }
     })
@@ -91,7 +99,7 @@ Page({
 
     this.setData({
       offset: 0,
-      limit: 10
+      cardItems: []
     })
 
     Promise.all([this.onReady()]).then(res => {
@@ -107,7 +115,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.loading || this.data.count === this.data.cardItems.length) return
+    this.setData({
+      offset: this.data.offset + 10,
+      loading: false
+    })
+    this.onReady()
   },
 
   /**
