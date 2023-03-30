@@ -22,8 +22,8 @@ Page({
     }]
   },
 
-  onReady() {
-    request('/user/' + getStorage('user').user_id, 'GET').then(res => {
+  async onReady() {
+    return request('/user/' + getStorage('user').user_id, 'GET').then(res => {
       setStorage('user', {
         ...getStorage('user'),
         avatar: res.avatar
@@ -79,6 +79,17 @@ Page({
         })
       }
     })
+  },
+  onRefresh: function () {
+    //导航条加载动画
+    wx.showNavigationBarLoading();
 
-  }
+    Promise.all([this.onReady()]).then(res => {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    })
+  },
+  onPullDownRefresh: function () {
+    this.onRefresh();
+  },
 })

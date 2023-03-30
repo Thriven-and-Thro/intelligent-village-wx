@@ -85,8 +85,22 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onRefresh: function () {
+    //导航条加载动画
+    wx.showNavigationBarLoading();
 
+    this.setData({
+      offset: 0,
+      limit: 10
+    })
+
+    Promise.all([this.onReady()]).then(res => {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    })
+  },
+  onPullDownRefresh: function () {
+    this.onRefresh();
   },
 
   /**

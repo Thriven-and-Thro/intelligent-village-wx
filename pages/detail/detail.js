@@ -109,8 +109,18 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onRefresh: function () {
+    //导航条加载动画
+    wx.showNavigationBarLoading();
 
+    Promise.all([
+      this.updateFeedback(this.data.detail.fee_id)]).then(res => {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      })
+  },
+  onPullDownRefresh: function () {
+    this.onRefresh();
   },
 
   /**

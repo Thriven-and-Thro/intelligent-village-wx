@@ -21,8 +21,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    request('/user/comment/' + getStorage('user').user_id, 'GET').then(res => {
+  onLoad: async function (options) {
+    return request('/user/comment/' + getStorage('user').user_id, 'GET').then(res => {
       res.map((v) => v.date = formateDate(v.updateTime))
       this.setData({
         commentItems: res
@@ -61,8 +61,17 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onRefresh: function () {
+    //导航条加载动画
+    wx.showNavigationBarLoading();
 
+    Promise.all([this.onLoad()]).then(res => {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    })
+  },
+  onPullDownRefresh: function () {
+    this.onRefresh();
   },
 
   /**

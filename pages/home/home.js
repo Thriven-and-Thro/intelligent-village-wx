@@ -17,7 +17,7 @@ Page({
   },
 
   requestAid(arr) {
-    request('/area', 'POST', {
+    return request('/area', 'POST', {
       area: arr.join('-')
     }).then((result) => {
       if (result === 'error') {
@@ -29,6 +29,31 @@ Page({
         setStorage('aid', result.aid)
       }
       return arr
+    })
+  },
+
+  requestHot() {
+    return request('/hot?aid=' + getStorage('aid'), 'GET').then(res => {
+      let results = []
+      for (let i = 0; i < res.length; i++) {
+        request('/article/' + res[i].art_id, 'GET').then(result => {
+          results.push(result[0])
+
+          if (results.length === res.length) {
+            this.setData({
+              hotCardItems: results
+            })
+          }
+        })
+      }
+    })
+  },
+
+  requestRecommend() {
+    return request('/recommend?aid=' + getStorage('aid'), 'GET').then(res => {
+      this.setData({
+        recommendCardItems: res
+      })
     })
   },
 
@@ -63,27 +88,8 @@ Page({
       currentDate: formatTime(new Date()).split(' ')[0]
     })
     this.requestAid(area)
-
-    request('/hot?aid=' + getStorage('aid'), 'GET').then(res => {
-      let results = []
-      for (let i = 0; i < res.length; i++) {
-        request('/article/' + res[i].art_id, 'GET').then(result => {
-          results.push(result[0])
-
-          if (results.length === res.length) {
-            this.setData({
-              hotCardItems: results
-            })
-          }
-        })
-      }
-    })
-
-    request('/recommend?aid=' + getStorage('aid'), 'GET').then(res => {
-      this.setData({
-        recommendCardItems: res
-      })
-    })
+    this.requestHot()
+    this.requestRecommend()
   },
 
 
@@ -112,9 +118,20 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onRefresh: function () {
+    //导航条加载动画
+    wx.showNavigationBarLoading();
+    const area = getStorage("area") ?? ["广东省", "汕头市", "潮阳区"]
 
+    Promise.all([this.requestAid(area), this.requestHot(), this.requestRecommend()]).then(res => {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    })
   },
+  onPullDownRefresh: function () {
+    this.onRefresh();
+  },
+
 
   /**
    * 页面上拉触底事件的处理函数

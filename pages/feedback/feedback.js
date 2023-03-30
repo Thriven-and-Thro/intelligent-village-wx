@@ -34,5 +34,22 @@ Page({
         cardData: res[0].data
       })
     })
-  }
+  },
+  onRefresh: function () {
+    //导航条加载动画
+    wx.showNavigationBarLoading();
+
+    this.setData({
+      offset: 0,
+      limit: 10
+    })
+
+    Promise.all([this.onReady()]).then(res => {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    })
+  },
+  onPullDownRefresh: function () {
+    this.onRefresh();
+  },
 })

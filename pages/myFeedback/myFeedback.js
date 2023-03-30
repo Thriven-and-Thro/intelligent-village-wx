@@ -18,8 +18,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    request('/user/feedback/' + getStorage('user').user_id, 'GET').then(res => {
+  onLoad: async function (options) {
+    return request('/user/feedback/' + getStorage('user').user_id, 'GET').then(res => {
       this.setData({
         cardData: res
       })
@@ -57,8 +57,17 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onRefresh: function () {
+    //导航条加载动画
+    wx.showNavigationBarLoading();
 
+    Promise.all([this.onReady()]).then(res => {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    })
+  },
+  onPullDownRefresh: function () {
+    this.onRefresh();
   },
 
   /**

@@ -13,7 +13,9 @@ Page({
     content: '',
     date: '',
     commentItems: [],
-    art_id: ''
+    art_id: '',
+    offset: 0,
+    limit: 10,
   },
 
   updateComments() {
@@ -22,8 +24,8 @@ Page({
       record: {
       },
       art_id: this.data.art_id,
-      offset: 0,
-      limit: 1000,
+      offset: this.data.offset,
+      limit: this.data.limit,
       desc: true
     }).then((res) => {
       if (res[0]) {
@@ -45,15 +47,8 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.setData({
-      art_id: options.art_id
-    })
-
-    request('/article/' + options.art_id, 'GET').then((res) => {
+  requestArticle() {
+    request('/article/' + this.data.art_id, 'GET').then((res) => {
       if (res[0]) {
         this.setData({
           title: res[0].title,
@@ -62,6 +57,17 @@ Page({
         })
       }
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.setData({
+      art_id: options.art_id
+    })
+
+    this.requestArticle()
 
     this.updateComments()
   },
@@ -97,8 +103,23 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onRefresh: function () {
+    //导航条加载动画
+    wx.showNavigationBarLoading();
 
+    this.setData({
+      offset: 0,
+      limit: 10
+    })
+
+    Promise.all([this.requestArticle(),
+    this.updateComments()]).then(res => {
+      wx.hideNavigationBarLoading();
+      wx.stopPullDownRefresh();
+    })
+  },
+  onPullDownRefresh: function () {
+    this.onRefresh();
   },
 
   /**

@@ -1,8 +1,8 @@
 // promise的封装
 const { getStorage }  = require("../utils/cache")
 
-const baseURL = "http://127.0.0.1:8000";
-// const baseURL = "http://192.168.31.67:8000";
+// const baseURL = "http://127.0.0.1:8000";
+const baseURL = "http://43.139.137.2:50001";
 
 
 const request =  (url, method, data, ...arr) => {
