@@ -22,7 +22,7 @@ Page({
     }]
   },
 
-  async onReady() {
+  onReady() {
     return request('/user/' + getStorage('user').user_id, 'GET').then(res => {
       setStorage('user', {
         ...getStorage('user'),

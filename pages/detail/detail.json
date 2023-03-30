@@ -2,5 +2,6 @@
   "usingComponents": {
     "content": "/components/content/content",
     "deliver": "/components/deliver/deliver"
-  }
+  },
+  "enablePullDownRefresh": true
 }

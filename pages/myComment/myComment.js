@@ -21,7 +21,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
+  onLoad: function (options) {
     return request('/user/comment/' + getStorage('user').user_id, 'GET').then(res => {
       res.map((v) => v.date = formateDate(v.updateTime))
       this.setData({

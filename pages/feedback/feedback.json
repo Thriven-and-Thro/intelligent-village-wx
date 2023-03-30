@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "feedback-card": "/components/feedback-card/feedback-card"
-  }
+  },
+  "enablePullDownRefresh": true
 }
