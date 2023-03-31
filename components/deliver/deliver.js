@@ -27,6 +27,14 @@ Component({
     },
 
     emitClick() {
+      if(this.data.input.length===0) {
+        wx.showModal({
+          title: '错误',
+          content: '输入不能为空'
+        })
+        return
+      }
+      
       this.triggerEvent('update', this.data.input)
       this.setData({
         input: ''

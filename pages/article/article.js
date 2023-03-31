@@ -31,9 +31,10 @@ Page({
     }).then((res) => {
       if (res[0]) {
         const { count, data } = res[0]
-        for (let i = this.data.commentItems.length-1; i >=0 ; i--) {
+        for (let i = this.data.commentItems.length - 1; i >= 0; i--) {
           data.unshift(this.data.commentItems[i])
         }
+        
         this.setData({
           count,
           commentItems: data
@@ -49,6 +50,10 @@ Page({
       user_id,
       art_id: this.data.art_id
     }).then((res) => {
+      this.setData({
+        commentItems: [],
+        offset: 0
+      })
       this.updateComments()
     })
   },
@@ -118,8 +123,7 @@ Page({
       commentItems: []
     })
 
-    Promise.all([this.requestArticle(),
-    this.updateComments()]).then(res => {
+    Promise.all([this.requestArticle(), this.updateComments()]).then(res => {
       wx.hideNavigationBarLoading();
       wx.stopPullDownRefresh();
     })

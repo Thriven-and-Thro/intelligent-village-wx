@@ -2,5 +2,6 @@
   "usingComponents": {
     "feedback-card": "/components/feedback-card/feedback-card"
   },
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 150
 }

@@ -4,5 +4,6 @@
     "comment": "./component/comment/comment",
     "deliver": "/components/deliver/deliver"
   },
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 150
 }

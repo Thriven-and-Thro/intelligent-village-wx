@@ -55,7 +55,6 @@ Component({
       }
 
       if (this.data.formData.password !== this.data.formData.confirmPassword) {
-        console.log(this.data.formData.password, this.data.formData.confirmPassword);
         wx.showModal({
           title: '错误',
           content: '两次输入的密码不一致'

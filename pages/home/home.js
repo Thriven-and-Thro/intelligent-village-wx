@@ -27,6 +27,9 @@ Page({
         })
       } else {
         setStorage('aid', result.aid)
+
+        this.requestHot()
+        this.requestRecommend()
       }
       return arr
     })
@@ -87,9 +90,8 @@ Page({
       region: area,
       currentDate: formatTime(new Date()).split(' ')[0]
     })
+
     this.requestAid(area)
-    this.requestHot()
-    this.requestRecommend()
   },
 
 
@@ -123,7 +125,7 @@ Page({
     wx.showNavigationBarLoading();
     const area = getStorage("area") ?? ["广东省", "汕头市", "潮阳区"]
 
-    Promise.all([this.requestAid(area), this.requestHot(), this.requestRecommend()]).then(res => {
+    Promise.all([this.requestAid(area)]).then(res => {
       wx.hideNavigationBarLoading();
       wx.stopPullDownRefresh();
     })
