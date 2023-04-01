@@ -23,10 +23,10 @@ Page({
       url: '/pages/emitFeedback/emitFeedback'
     })
   },
-  requestData() {
+  requestData(record={}) {
     request("/search", "POST", {
       table: "feedback",
-      record: {},
+      record,
       aid: this.data.aid,
       offset: this.data.offset,
       limit: 10,
@@ -41,6 +41,17 @@ Page({
         count,
         cardData: data
       })
+    })
+  },
+  searchArticle(e) {
+    this.setData({
+      offset: 0,
+      cardData: [],
+      aid: getStorage('aid')
+    })
+
+    this.requestData({
+      content: e.detail
     })
   },
   onReady() {

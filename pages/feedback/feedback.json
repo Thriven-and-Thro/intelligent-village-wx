@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "feedback-card": "/components/feedback-card/feedback-card",
-    "null": "/components/null/null"
+    "null": "/components/null/null",
+    "search": "/components/search/search"
   },
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 150

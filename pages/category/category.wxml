@@ -4,6 +4,7 @@
     <view class="label {{state === index ? 'active' : ''}}" wx:for="{{labelArr}}" wx:key="*this" bindtap="labelClick"
       data-index="{{index}}">{{item}}</view>
   </view>
+  <search bind:search="searchArticle"></search>
   <view class="category-content">
     <block wx:for="{{[0,1,2,3]}}" wx:key="*this">
       <view wx:if="{{item === state}}">

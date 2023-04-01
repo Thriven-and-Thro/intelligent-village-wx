@@ -1,0 +1,5 @@
+<!--components/search/search.wxml-->
+<view class="search">
+  <input type="text" placeholder="搜索..." value="{{input}}" bindinput="modelSearch" />
+  <button bindtap="searchClick">搜索</button>
+</view>

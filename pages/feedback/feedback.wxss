@@ -1,5 +1,6 @@
 /* pages/feedback/feedback.wxss */
 .feedback {
+  padding: 0 5vw;
   position: relative;
 }
 

@@ -26,11 +26,10 @@ Page({
     this.requestCardItems()
   },
 
-  requestCardItems() {
+  requestCardItems(record = {}) {
     request('/search', 'POST', {
       table: "article",
-      record: {
-      },
+      record,
       aid: getStorage('aid'),
       offset: this.data.offset,
       limit: 10,
@@ -38,7 +37,7 @@ Page({
     }).then((res) => {
       if (res[0]) {
         const { count, data } = res[0]
-        for (let i = this.data.cardItems.length-1; i >=0 ; i--) {
+        for (let i = this.data.cardItems.length - 1; i >= 0; i--) {
           data.unshift(this.data.cardItems[i])
         }
 
@@ -53,6 +52,17 @@ Page({
   detailClick(e) {
     wx.navigateTo({
       url: '/pages/article/article?art_id=' + e.target.dataset.id
+    })
+  },
+
+  searchArticle(e) {
+    this.setData({
+      offset: 0,
+      cardItems: []
+    })
+
+    this.requestCardItems({
+      title: e.detail
     })
   },
 
@@ -119,7 +129,7 @@ Page({
       offset: this.data.offset + 10,
       loading: false
     })
-    
+
     this.requestCardItems()
   },
 
