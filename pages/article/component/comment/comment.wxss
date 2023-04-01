@@ -1,5 +1,6 @@
 /* pages/article/component/comment.wxss */
 .comment {
+  padding-right: 20rpx;
   margin-bottom: 20rpx;
 }
 
@@ -22,8 +23,12 @@
   object-fit: cover;
 }
 
+.comment .comment-user text{
+  color: #f67878;
+}
+
 .comment .content,
-.comment .date {
+.comment .footer {
   margin-left: 100rpx;
 }
 
@@ -32,6 +37,8 @@
   word-wrap: break-word;
 }
 
-.comment .date {
+.comment .footer {
+  display: flex;
+  justify-content: space-between;
   color: #a5a2c2;
 }

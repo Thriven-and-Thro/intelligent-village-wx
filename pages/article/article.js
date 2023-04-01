@@ -43,6 +43,15 @@ Page({
     })
   },
 
+  refreshComment() {
+    this.setData({
+      commentItems: [],
+      offset: 0
+    })
+
+    this.updateComments()
+  },
+
   emitClick(e) {
     const { user_id } = getStorage('user')
     request('/comment', 'POST', {
@@ -50,11 +59,7 @@ Page({
       user_id,
       art_id: this.data.art_id
     }).then((res) => {
-      this.setData({
-        commentItems: [],
-        offset: 0
-      })
-      this.updateComments()
+      this.refreshComment()
     })
   },
 

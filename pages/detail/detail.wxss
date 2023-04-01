@@ -41,7 +41,7 @@
   font-weight: 600;
 }
 
-.detail .feedback>view:first-child text {
+.detail .feedback>view text:first-child {
   padding: 0 10rpx;
   font-size: 25rpx;
   line-height: 30rpx;
@@ -64,4 +64,11 @@
 
 .detail .feedback>view:first-child text.reject {
   background-color: #f56c6c;
+}
+
+.detail .feedback>view .delete {
+  display: inline-block;
+  margin: 0 15rpx;
+  font-size: 26rpx;
+  color: #f67878;
 }

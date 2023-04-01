@@ -3,6 +3,7 @@
   <view class="feedback">
     <view>反馈详情
       <text class="{{detail.state===0 ? '' : (detail.state===1 ? 'success' : 'reject')}}">{{textByState}}</text>
+      <view class="delete" wx:if="{{deleteButton}}" bindtap="deleteFeedback">删除</view>
     </view>
     <view class="detail-user">
       <image src="{{user.avatar}}"></image>

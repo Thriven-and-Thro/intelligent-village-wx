@@ -22,7 +22,8 @@ Page({
     date: '',
     user: {},
     textByState: '',
-    display: false
+    display: false,
+    deleteButton: false
   },
 
   /**
@@ -40,9 +41,15 @@ Page({
         textByState = '已拒绝'
       }
 
+      let deleteButton = false
+      if(detail.user_id === getStorage('user').user_id) {
+        deleteButton = true
+      }
+
       this.setData({
         detail,
         textByState,
+        deleteButton,
         date: formateDate(detail.updateTime)
       })
 
@@ -71,6 +78,22 @@ Page({
     }).then((res) => {
       this.updateFeedback(this.data.detail.fee_id)
     })
+  },
+
+  deleteFeedback() {
+    const that = this
+    wx.showModal({
+      title: '提示',
+      content: '是否删除该条评论',
+      success(res) {
+        if (res.confirm) {
+          request('/feedback/' + that.data.detail.fee_id, 'DELETE').then(res => {
+            wx.navigateBack()
+          })
+        }
+      }
+    })
+
   },
 
   onLoad: function (options) {

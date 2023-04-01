@@ -3,7 +3,11 @@
   <view class="comment-user">
     <image src="{{user.avatar}}"></image>
     <view class="name over">{{user.name}}</view>
+    <text wx:if="{{delete}}" bindtap="deleteComment">删除</text>
   </view>
   <view class="content">{{content}}</view>
-  <view class="date">{{date}}</view>
+  <view class="footer">
+    <view class="date">{{date}}</view>
+    <view class="floor">{{floor}}楼</view>
+  </view>
 </view>
