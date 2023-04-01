@@ -84,6 +84,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+  },
+
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     const area = getStorage("area") ?? ["广东省", "汕头市", "潮阳区"]
     this.setData({
       userName: getStorage("user")?.name,
@@ -92,15 +100,6 @@ Page({
     })
 
     this.requestAid(area)
-  },
-
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-
   },
 
   /**

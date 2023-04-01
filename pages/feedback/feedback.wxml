@@ -5,6 +5,6 @@
       data-id="{{item.fee_id}}"></feedback-card>
   </view>
   <view class="feedback-emit" bindtap="emitClick">
-    <image src="/static/icon/我要反馈.png"></image>
+    <image src="/static/icon/emitFeedback.png"></image>
   </view>
 </view>

@@ -6,7 +6,7 @@
     </view>
     <view class="panel-content" wx:if="{{status !== 0}}">
       <view class="return-click">
-        <image src="../../static/icon/返回.png" alt="" bindtap="returnClick" />
+        <image src="../../static/icon/return.png" alt="" bindtap="returnClick" />
         <view class="title">{{ status === 1 ? "Login" : "Register" }}</view>
       </view>
       <login-panel wx:if="{{status === 1}}"></login-panel>

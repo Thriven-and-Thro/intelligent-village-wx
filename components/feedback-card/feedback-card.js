@@ -37,13 +37,13 @@ Component({
 
   lifetimes: {
     attached() {
-      let urlByState = '/static/icon/待处理.png'
+      let urlByState = '/static/icon/pedding.png'
       switch (this.properties.cardData.state) {
         case 1:
-          urlByState = '/static/icon/已处理.png'
+          urlByState = '/static/icon/resolve.png'
           break
         case 2:
-          urlByState = '/static/icon/已拒绝.png'
+          urlByState = '/static/icon/reject.png'
           break
       }
 

@@ -22,7 +22,7 @@ Page({
       url: '/pages/emitFeedback/emitFeedback'
     })
   },
-  onReady() {
+  requestData() {
     request("/search", "POST", {
       table: "feedback",
       record: {},
@@ -42,6 +42,12 @@ Page({
       })
     })
   },
+  onReady() {
+
+  },
+  onShow() {
+    this.onRefresh()
+  },
   onRefresh: function () {
     //导航条加载动画
     wx.showNavigationBarLoading();
@@ -51,7 +57,7 @@ Page({
       cardData: []
     })
 
-    Promise.all([this.onReady()]).then(res => {
+    Promise.all([this.requestData()]).then(res => {
       wx.hideNavigationBarLoading();
       wx.stopPullDownRefresh();
     })
@@ -66,6 +72,6 @@ Page({
       offset: this.data.offset + 10,
       loading: false
     })
-    this.onReady()
+    this.requestData()
   }
 })

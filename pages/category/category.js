@@ -66,14 +66,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.requestCardItems()
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.onRefresh();
   },
 
   /**
@@ -102,7 +101,7 @@ Page({
       cardItems: []
     })
 
-    Promise.all([this.onReady()]).then(res => {
+    Promise.all([this.requestCardItems()]).then(res => {
       wx.hideNavigationBarLoading();
       wx.stopPullDownRefresh();
     })
@@ -120,7 +119,8 @@ Page({
       offset: this.data.offset + 10,
       loading: false
     })
-    this.onReady()
+    
+    this.requestCardItems()
   },
 
   /**
