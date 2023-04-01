@@ -39,7 +39,26 @@ Page({
   formSubmit(form) {
     const { user_id, password } = getStorage('user')
     const formData = this.data.formData
-    
+    const len = formData.password.length
+
+    if(len === 0) {
+      wx.showModal({
+        title: '错误',
+        content: '必须输入密码'
+      })
+
+      return 
+    }
+
+    if (len < 6 || len > 20) {
+      wx.showModal({
+        title: '错误',
+        content: '密码长度需在 6 到 20 个字符之间'
+      })
+
+      return
+    }
+
     if(formData.password !== formData.confirmPassword) {
       wx.showModal({
         title: '错误',

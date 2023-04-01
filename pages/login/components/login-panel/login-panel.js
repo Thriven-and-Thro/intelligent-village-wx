@@ -47,16 +47,7 @@ Component({
     },
     // 登录
     formSubmit(form) {
-      // 校验
-      // this.$refs.form
-      //   .validate()
-      //   .then((res) => {
       this.loginRequest(form.detail.value.name, form.detail.value.password);
-
-      //   })
-      //   .catch((err) => {
-      //     this.triggerEvent("openMessage", "error", err[0].errorMessage);
-      //   });
     },
 
     changeCheckBox() {

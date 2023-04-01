@@ -18,7 +18,7 @@
       </view>
     </view>
   </view>
-  <view wx:if="{{region.length > 0}}">
+  <view wx:if="{{aid}}">
     <mode title="{{'热门'}}">
       <block wx:for="{{hotCardItems}}" wx:key="art_id">
           <card cardData="{{item}}" bindtap="detailClick" data-id="{{item.art_id}}"></card>

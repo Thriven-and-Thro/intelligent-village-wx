@@ -10,7 +10,8 @@ Page({
     cardData: [],
     offset: 0,
     loading: false,
-    count: 0
+    count: 0,
+    aid: 0
   },
   feedbackClick(e) {
     wx.navigateTo({
@@ -26,7 +27,7 @@ Page({
     request("/search", "POST", {
       table: "feedback",
       record: {},
-      aid: getStorage("aid"),
+      aid: this.data.aid,
       offset: this.data.offset,
       limit: 10,
       desc: true
@@ -54,7 +55,8 @@ Page({
 
     this.setData({
       offset: 0,
-      cardData: []
+      cardData: [],
+      aid: getStorage('aid')
     })
 
     Promise.all([this.requestData()]).then(res => {

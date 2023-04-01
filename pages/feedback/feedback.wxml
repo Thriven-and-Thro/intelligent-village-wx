@@ -1,10 +1,13 @@
 <!--pages/feedback/feedback.wxml-->
 <view class="feedback container">
   <view class="feedback-tabel">
-    <feedback-card wx:for="{{cardData}}" wx:key="fee_id" card-data="{{item}}" bindtap="feedbackClick"
-      data-id="{{item.fee_id}}"></feedback-card>
+    <block wx:if="{{count}}">
+      <feedback-card wx:for="{{cardData}}" wx:key="fee_id" card-data="{{item}}" bindtap="feedbackClick"
+        data-id="{{item.fee_id}}"></feedback-card>
+    </block>
+    <null wx:else></null>
   </view>
-  <view class="feedback-emit" bindtap="emitClick">
+  <view class="feedback-emit" bindtap="emitClick" wx:if="{{aid}}">
     <image src="/static/icon/emitFeedback.png"></image>
   </view>
 </view>

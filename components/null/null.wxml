@@ -1,4 +1,5 @@
 <!--components/null/null.wxml-->
 <view class="null">
-  请点击上方法选择所在区域，以查看所在区域相关内容
+  <image src="../../static/icon/null.png"></image>
+  <view>当前没有数据</view>
 </view>

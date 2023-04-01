@@ -1,5 +1,5 @@
 // pages/home/home.js
-const { getStorage, setStorage } = require('../../utils/cache')
+const { getStorage, setStorage, removeStorage } = require('../../utils/cache')
 const { formatTime } = require('../../utils/util')
 const { request } = require('../../utils/request')
 
@@ -12,6 +12,7 @@ Page({
     userName: "",
     currentDate: "",
     region: [],
+    aid: 0,
     recommendCardItems: [],
     hotCardItems: []
   },
@@ -25,12 +26,20 @@ Page({
           title: '提示',
           content: '当前区域暂无管理员'
         })
+        removeStorage('aid')
+        this.setData({
+          aid: 0
+        })
       } else {
         setStorage('aid', result.aid)
+        this.setData({
+          aid: result.aid
+        })
 
         this.requestHot()
         this.requestRecommend()
       }
+      setStorage('area', this.data.region)
       return arr
     })
   },
@@ -64,7 +73,6 @@ Page({
     this.setData({
       region: e.detail.value
     })
-    setStorage('area', this.data.region)
     this.requestAid(e.detail.value)
   },
 

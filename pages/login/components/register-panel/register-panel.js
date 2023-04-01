@@ -36,7 +36,7 @@ Component({
         return
       }
 
-      if (!len) {
+      if (len === 0) {
         wx.showModal({
           title: '错误',
           content: '必须输入密码'
