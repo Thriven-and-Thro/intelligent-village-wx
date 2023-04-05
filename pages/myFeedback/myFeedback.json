@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "feedback-card": "/components/feedback-card/feedback-card"
+    "feedback-card": "/components/feedback-card/feedback-card",
+    "null": "/components/null/null"
   },
   "enablePullDownRefresh": true
 }

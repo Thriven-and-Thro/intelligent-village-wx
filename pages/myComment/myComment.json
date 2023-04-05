@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "card": "/components/card/card"
+    "card": "/components/card/card",
+    "null": "/components/null/null"
   },
   "enablePullDownRefresh": true
 }

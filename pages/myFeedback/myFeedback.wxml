@@ -1,8 +1,11 @@
 <!--pages/myFeedback/myFeedback.wxml-->
 <view class="my-feedbcak container">
   <view class="title">我的反馈</view>
+  <block wx:if="{{cardData.length}}">
   <view class="feedback-tabel">
     <feedback-card wx:for="{{cardData}}" wx:key="fee_id" card-data="{{item}}" bindtap="feedbackClick"
       data-id="{{item.fee_id}}"></feedback-card>
   </view>
+  </block>
+  <null wx:else></null>
 </view>
