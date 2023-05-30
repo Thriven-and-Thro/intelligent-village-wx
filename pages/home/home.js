@@ -100,7 +100,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const area = getStorage("area") ?? ["广东省", "汕头市", "潮阳区"]
+    const area = getStorage("area") ?? ["广东省", "广州市", "海珠区"]
     this.setData({
       userName: getStorage("user")?.name,
       region: area,
@@ -130,7 +130,7 @@ Page({
   onRefresh: function () {
     //导航条加载动画
     wx.showNavigationBarLoading();
-    const area = getStorage("area") ?? ["广东省", "汕头市", "潮阳区"]
+    const area = getStorage("area") ?? ["广东省", "广州市", "海珠区"]
 
     Promise.all([this.requestAid(area)]).then(res => {
       wx.hideNavigationBarLoading();

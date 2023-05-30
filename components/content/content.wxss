@@ -1,4 +1,7 @@
 /* components/content/content.wxss */
+.article-detail .detail-text{
+  overflow-x: scroll;
+}
 
 .article-detail .date {
   margin-top: 10rpx;
